@@ -1,14 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import {
-    Mail,
-    List,
-    BookOpen,
-    Sparkles,
-    Heart,
-    Crown,
-    Timer,
-} from "lucide-react";
+import { Mail, BookOpen, Sparkles, Heart, Crown, Timer } from "lucide-react";
 
 // ─── Section definitions ────────────────────────────────────────────────────
 

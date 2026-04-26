@@ -226,33 +226,6 @@ function OrnateFloralBorder({ flip = false }: { flip?: boolean }) {
     );
 }
 
-/**
- * ASSET: Couple Line Art Illustration
- * Path: src/assets/couple-illustration.png  (or .svg)
- * Usage: Replace <CoupleIllustrationPlaceholder /> with:
- *   import coupleIllustration from "@/assets/couple-illustration.png";
- *   <img src={coupleIllustration} alt="Couple illustration" className="w-48 h-56 object-contain" />
- */
-function CoupleIllustrationPlaceholder() {
-    return (
-        <div
-            className="mx-auto flex items-end justify-center border border-dashed border-[#C4A882]/25"
-            style={{ width: 176, height: 224 }}
-            role="img"
-            aria-label="Couple illustration placeholder — replace with src/assets/couple-illustration.png"
-        >
-            <div className="pb-5 text-center">
-                <p className="text-[8px] tracking-[0.18em] text-[#C4A882]/45 uppercase">
-                    Couple Illustration
-                </p>
-                <p className="mt-0.5 text-[7px] text-[#C4A882]/30">
-                    Placeholder
-                </p>
-            </div>
-        </div>
-    );
-}
-
 export default function NikahDetails({
     revealed = false,
 }: {
