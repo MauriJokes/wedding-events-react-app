@@ -42,11 +42,11 @@ export function useMusicPlayer(playOnMount?: boolean) {
         else play();
     }, [playing, play, pause]);
 
-    // optional auto-play trigger (IntroGate)
+    // Auto-play trigger: delay matches door animation (1s) + first text stagger (~0.2s)
     useEffect(() => {
-        if (playOnMount) {
-            play();
-        }
+        if (!playOnMount) return;
+        const id = setTimeout(play, 1500);
+        return () => clearTimeout(id);
     }, [playOnMount, play]);
 
     return {

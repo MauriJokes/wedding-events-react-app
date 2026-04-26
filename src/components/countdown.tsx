@@ -73,7 +73,7 @@ export default function Countdown() {
 
     return (
         <motion.div
-            className="mx-auto max-w-sm px-6 py-20 text-center"
+            className="mx-auto max-w-sm px-6 py-8 text-center"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -83,7 +83,7 @@ export default function Countdown() {
                 Menghitung Hari
             </p>
             <h2 className="mb-2 font-serif text-xl font-light tracking-[0.2em] text-[#3D2E1E] uppercase">
-                Akad Nikah
+                Ijab & Qabul
             </h2>
             <p className="mb-8 text-[10px] tracking-[0.2em] text-[#C4A882]">
                 27 Disember 2026

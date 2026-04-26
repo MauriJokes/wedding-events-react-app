@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import FloralDivider from "./floral-separator";
 
 interface AturcaraItem {
+    time: string;
     item: string;
     subitems?: string[];
 }
@@ -13,10 +14,12 @@ export interface EventDetailProps {
     day: string;
     date: string;
     venue: string[];
-    aturcara: (string | AturcaraItem)[];
+    aturcara: AturcaraItem[];
     /** CSS color value for the Tema Pakaian swatch */
     themeColor: string;
     themeLabel: string;
+    dresscode: { lelaki: string; perempuan: string };
+    location: string;
 }
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
@@ -40,12 +43,11 @@ export default function EventDetail({
     aturcara,
     themeColor,
     themeLabel,
+    dresscode,
+    location,
 }: EventDetailProps) {
     return (
-        <section
-            id={sectionId}
-            className="w-full bg-[#F5F0E8] px-6 py-20"
-        >
+        <section id={sectionId} className="w-full bg-[#F5F0E8] px-6 py-20">
             <div className="mx-auto max-w-sm">
                 {/* ── Title ── */}
                 <motion.h2
@@ -53,13 +55,13 @@ export default function EventDetail({
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.7 }}
-                    className="font-serif text-xl font-light leading-snug tracking-[0.22em] text-[#3D2E1E] uppercase text-center whitespace-pre-line sm:text-2xl"
+                    className="text-center font-serif text-base leading-snug font-light tracking-[0.22em] whitespace-pre-line text-[#3D2E1E] uppercase sm:text-2xl"
                 >
                     {title}
                 </motion.h2>
 
                 {/* Floral divider */}
-                <div className="flex justify-center mt-7 mb-10">
+                <div className="mt-7 mb-10 flex justify-center">
                     <FloralDivider size="md" />
                 </div>
 
@@ -73,8 +75,12 @@ export default function EventDetail({
                 >
                     <SectionLabel>Tarikh Majlis</SectionLabel>
                     <div className="mt-4 space-y-1">
-                        <p className="font-serif text-sm font-light text-[#3D2E1E]">{day}</p>
-                        <p className="font-serif text-sm font-light text-[#3D2E1E]">{date}</p>
+                        <p className="text-sm font-light text-[#6B5544]">
+                            {day}
+                        </p>
+                        <p className="text-sm font-light text-[#6B5544]">
+                            {date}
+                        </p>
                     </div>
                 </motion.div>
 
@@ -91,10 +97,23 @@ export default function EventDetail({
                     <SectionLabel>Bertempat Di</SectionLabel>
                     <div className="mt-4 space-y-1">
                         {venue.map((line, i) => (
-                            <p key={i} className="text-sm font-light leading-relaxed text-[#6B5544]">
+                            <p
+                                key={i}
+                                className="text-sm leading-relaxed font-light text-[#6B5544]"
+                            >
                                 {line}
                             </p>
                         ))}
+                    </div>
+                    <div className="mt-4 flex justify-center">
+                        <a
+                            className="border border-[#D4C4AE] px-5 py-2 text-[9px] tracking-[0.3em] whitespace-nowrap text-[#6B5544]/60 uppercase transition-colors hover:border-[#6B5544] hover:text-[#6B5544] active:scale-[0.97]"
+                            href={location}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Lihat lokasi
+                        </a>
                     </div>
                 </motion.div>
 
@@ -110,42 +129,38 @@ export default function EventDetail({
                     <p className="mb-5 text-center text-[10px] tracking-[0.38em] text-[#9B8470] uppercase">
                         Aturcara Majlis
                     </p>
-                    <ul className="space-y-2.5">
-                        {aturcara.map((entry, i) => {
-                            if (typeof entry === "string") {
-                                return (
-                                    <li
-                                        key={i}
-                                        className="flex items-start gap-2.5 text-sm font-light text-[#6B5544]"
-                                    >
-                                        <span className="mt-[7px] h-1 w-1 flex-shrink-0 rounded-full bg-[#C4A882]" />
-                                        <span>{entry}</span>
-                                    </li>
-                                );
-                            }
-                            return (
-                                <li key={i}>
-                                    <div className="flex items-start gap-2.5 text-sm font-light text-[#6B5544]">
-                                        <span className="mt-[7px] h-1 w-1 flex-shrink-0 rounded-full bg-[#C4A882]" />
-                                        <span>{entry.item}</span>
+                    <div className="relative">
+                        <div className="absolute top-0 bottom-0 left-[72px] w-px bg-[#D4C4AE]/40" />
+                        <ul className="space-y-3">
+                            {aturcara.map((entry, i) => (
+                                <li key={i} className="flex gap-4">
+                                    <div className="w-16 flex-shrink-0 pt-[3px] text-right text-[10px] leading-relaxed tracking-wide text-[#9B8470]">
+                                        {entry.time}
                                     </div>
-                                    {entry.subitems && (
-                                        <ul className="mt-1.5 ml-6 space-y-1.5">
-                                            {entry.subitems.map((sub, j) => (
-                                                <li
-                                                    key={j}
-                                                    className="flex items-start gap-2 text-[12px] font-light text-[#9B8470]"
-                                                >
-                                                    <span className="mt-[6px] h-[3px] w-[3px] flex-shrink-0 rounded-full bg-[#C4A882]/55" />
-                                                    <span>{sub}</span>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    )}
+                                    <div className="flex-1">
+                                        <div className="flex items-start gap-2.5 text-sm font-light text-[#6B5544]">
+                                            <span>{entry.item}</span>
+                                        </div>
+                                        {entry.subitems && (
+                                            <ul className="mt-1.5 ml-[14px] space-y-1.5">
+                                                {entry.subitems.map(
+                                                    (sub, j) => (
+                                                        <li
+                                                            key={j}
+                                                            className="flex items-start gap-2 text-[12px] font-light text-[#9B8470]"
+                                                        >
+                                                            <span className="mt-[6px] h-[3px] w-[3px] flex-shrink-0 rounded-full bg-[#C4A882]/55" />
+                                                            <span>{sub}</span>
+                                                        </li>
+                                                    ),
+                                                )}
+                                            </ul>
+                                        )}
+                                    </div>
                                 </li>
-                            );
-                        })}
-                    </ul>
+                            ))}
+                        </ul>
+                    </div>
                 </motion.div>
 
                 <ThinDivider />
@@ -171,9 +186,27 @@ export default function EventDetail({
                     <p className="mt-3 text-[10px] tracking-[0.22em] text-[#9B8470] uppercase">
                         {themeLabel}
                     </p>
+                    {/* Two-column dresscode */}
+                    <div className="mt-5 grid grid-cols-2 gap-px border border-[#D4C4AE]/60">
+                        <div className="border-r border-[#D4C4AE]/60 px-4 py-4">
+                            <p className="mb-2 text-[8px] tracking-[0.3em] text-[#C4A882] uppercase">
+                                Lelaki
+                            </p>
+                            <p className="text-[11px] leading-relaxed font-light text-[#6B5544]">
+                                {dresscode.lelaki}
+                            </p>
+                        </div>
+                        <div className="px-4 py-4">
+                            <p className="mb-2 text-[8px] tracking-[0.3em] text-[#C4A882] uppercase">
+                                Perempuan
+                            </p>
+                            <p className="text-[11px] leading-relaxed font-light text-[#6B5544]">
+                                {dresscode.perempuan}
+                            </p>
+                        </div>
+                    </div>
                 </motion.div>
             </div>
         </section>
     );
 }
-

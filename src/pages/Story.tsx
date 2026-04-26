@@ -1,8 +1,8 @@
+import { useState } from "react";
 import { useLenis } from "../hooks/useLenis";
 import SectionNav from "../components/nav";
 import Hero from "@/components/hero";
 import NikahDetails from "@/components/nikah-details";
-import EventsSummary from "@/components/timeline";
 import EventDetail from "@/components/event-detail";
 import type { EventDetailProps } from "@/components/event-detail";
 import Countdown from "@/components/countdown";
@@ -21,26 +21,30 @@ const eventKhatam: EventDetailProps = {
         "Brunei Darussalam",
     ],
     themeColor: "#F5F5F0",
-    themeLabel: "Putih / Off-White",
+    themeLabel: "Putih / White",
+    dresscode: { lelaki: "Kurta", perempuan: "Jubah atau Abaya" },
     aturcara: [
-        "Ketibaan Tetamu dan Jemputan",
-        "Perarakan Masuk Pembaca Khatam",
+        { time: "9:00 PG", item: "Ketibaan Tetamu dan Jemputan" },
+        { time: "9:30 PG", item: "Perarakan Masuk Pembaca Khatam" },
         {
+            time: "10:00 PG",
             item: "Majlis Khatam Al-Quran Dimulakan",
             subitems: [
                 "Bacaan Surah Al-Fatihah dikepalai oleh Awangku Mohamad Izzan Naqiuddin",
                 "Bacaan Surah-Surah, Tahktim & Doa Khatam",
             ],
         },
-        "Alunan Dikir Marhaban",
-        "Upacara Merenjis Bunga Rampai",
-        "Menikmati Jamuan",
+        { time: "11:00 PG", item: "Alunan Dikir Marhaban" },
+        { time: "11:30 PG", item: "Upacara Merenjis Bunga Rampai" },
+        { time: "12:00 TGH", item: "Menikmati Jamuan" },
         {
+            time: "2:30 PTG",
             item: "Majlis Berbedak Siang Dimulakan",
             subitems: ["Upacara Menculiki (Merenjis) Bedak"],
         },
-        "Bacaan Doa Selamat",
+        { time: "3:30 PTG", item: "Bacaan Doa Selamat" },
     ],
+    location: "https://maps.app.goo.gl/hqtoseX2VETaqKqV7?g_st=ic",
 };
 
 const eventBerbedak: EventDetailProps = {
@@ -53,22 +57,34 @@ const eventBerbedak: EventDetailProps = {
         "Kg. Mata-Mata, Gadong BE1718",
         "Brunei Darussalam",
     ],
-    themeColor: "#CFA8A1",
-    themeLabel: "Dusty Rose",
+    themeColor: "#DEA193",
+    themeLabel: "Rose Gold / Merah Jambu",
+    dresscode: {
+        lelaki: "Baju Melayu",
+        perempuan: "Baju Kurung atau Gaun Formal",
+    },
     aturcara: [
-        "Ketibaan Tetamu dan Jemputan",
-        "Majlis Dikir Dimulakan",
-        "Perarakan Masuk Pengantin Perempuan ke Pelamin",
-        "Perarakan Masuk Pengantin Lelaki ke Pelamin",
+        { time: "8:00 MLM", item: "Ketibaan Tetamu dan Jemputan" },
+        { time: "8:30 MLM", item: "Majlis Dikir Dimulakan" },
         {
+            time: "9:00 MLM",
+            item: "Perarakan Masuk Pengantin Perempuan ke Pelamin",
+        },
+        {
+            time: "9:15 MLM",
+            item: "Perarakan Masuk Pengantin Lelaki ke Pelamin",
+        },
+        {
+            time: "9:30 MLM",
             item: "Majlis Berbedak & Berinai Dimulakan",
             subitems: [
                 "Upacara Menculiki (Merenjis) Bedak 7 Warna & Menitiki Pacar (Inai)",
             ],
         },
-        "Bacaan Doa Selamat",
-        "Menikmati Jamuan",
+        { time: "10:30 MLM", item: "Bacaan Doa Selamat" },
+        { time: "11:00 MLM", item: "Menikmati Jamuan" },
     ],
+    location: "https://maps.app.goo.gl/hqtoseX2VETaqKqV7?g_st=ic",
 };
 
 const eventAkad: EventDetailProps = {
@@ -82,26 +98,40 @@ const eventAkad: EventDetailProps = {
         "Brunei Darussalam",
     ],
     themeColor: "#7B4A2D",
-    themeLabel: "Coklat / Brown",
+    themeLabel: "Coklat Gelap / Rich Brown",
+    dresscode: {
+        lelaki: "Baju Melayu",
+        perempuan: "Baju Kurung atau Gaun Formal",
+    },
     aturcara: [
-        "Ketibaan Tetamu dan Jemputan",
-        "Jurunikah dan Saksi-Saksi Mengambil Tempat",
-        "Ketibaan Rombongan Keluarga Pengantin Lelaki",
+        { time: "9:30 PG", item: "Ketibaan Tetamu dan Jemputan" },
         {
+            time: "10:00 PG",
+            item: "Jurunikah dan Saksi-Saksi Mengambil Tempat",
+        },
+        {
+            time: "10:30 PG",
+            item: "Ketibaan Rombongan Keluarga Pengantin Lelaki",
+        },
+        {
+            time: "11:00 PG",
             item: "Majlis Menerima Berian & Mas Kahwin Dimulakan",
             subitems: ["Pertukaran Dulang Hantaran & Balasan"],
         },
-        "Perarakan Masuk Pengantin Lelaki & Perempuan",
         {
-            item: "Majlis Akad Nikah Dimulakan",
-            subitems: [
-                "Upacara Penyerahan Mas Kahwin & Menyarungkan Cincin",
-            ],
+            time: "11:30 PG",
+            item: "Perarakan Masuk Pengantin Lelaki & Perempuan",
         },
-        "Bacaan Doa Selamat",
-        "Sesi Bergambar",
-        "Menikmati Jamuan",
+        {
+            time: "12:00 TGH",
+            item: "Majlis Akad Nikah Dimulakan",
+            subitems: ["Upacara Penyerahan Mas Kahwin & Menyarungkan Cincin"],
+        },
+        { time: "12:30 TGH", item: "Bacaan Doa Selamat" },
+        { time: "1:00 PTG", item: "Sesi Bergambar" },
+        { time: "1:30 PTG", item: "Menikmati Jamuan" },
     ],
+    location: "https://maps.app.goo.gl/uxXXArTPfgnjCdbH9",
 };
 
 const eventBersanding: EventDetailProps = {
@@ -116,19 +146,25 @@ const eventBersanding: EventDetailProps = {
     ],
     themeColor: "#1A2744",
     themeLabel: "Biru Gelap / Dark Navy",
+    dresscode: {
+        lelaki: "Baju Melayu",
+        perempuan: "Baju Kurung atau Gaun Formal",
+    },
     aturcara: [
-        "Ketibaan Tetamu dan Jemputan",
-        "Perarakan Masuk Diraja Sehari",
-        "Iringan Persembahan Tausyeh",
+        { time: "7:00 MLM", item: "Ketibaan Tetamu dan Jemputan" },
+        { time: "8:00 MLM", item: "Perarakan Masuk Diraja Sehari" },
+        { time: "8:30 MLM", item: "Iringan Persembahan Tausyeh" },
         {
+            time: "9:00 MLM",
             item: "Majlis Bersanding Dimulakan",
             subitems: ["Ucapan Alu-aluan daripada Wakil Keluarga"],
         },
-        "Acara Memotong Kek",
-        "Bacaan Doa Selamat",
-        "Menikmati Jamuan",
-        "Sesi bergambar & Rakaman Ucapan Kenangan",
+        { time: "9:45 MLM", item: "Acara Memotong Kek" },
+        { time: "10:00 MLM", item: "Bacaan Doa Selamat" },
+        { time: "10:30 MLM", item: "Menikmati Jamuan" },
+        { time: "11:00 MLM", item: "Sesi bergambar & Rakaman Ucapan Kenangan" },
     ],
+    location: "https://maps.app.goo.gl/Nfbe8NC5Kz59Ft1NA",
 };
 
 // ─── Section divider ─────────────────────────────────────────────────────────
@@ -143,18 +179,22 @@ function SectionDivider() {
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
-export default function Story() {
-    useLenis();
+export default function Story({ onEnter }: { onEnter?: () => void }) {
+    const [isRevealed, setIsRevealed] = useState(false);
+    useLenis(!isRevealed);
 
     return (
         <div className="min-h-screen bg-[#F5F0E8] lg:pl-44">
-            <SectionNav />
+            {/* Opening doors overlay */}
+            <Hero onEnter={onEnter} onOpened={() => setIsRevealed(true)} />
 
-            {/* Hero */}
-            <Hero />
+            <SectionNav revealed={isRevealed} />
+
+            {/* Scroll anchor for #home nav item */}
+            <div id="home" />
 
             {/* Invitation / Jemputan — dark background butts directly against hero */}
-            <NikahDetails />
+            <NikahDetails revealed={isRevealed} />
 
             <SectionDivider />
 
@@ -162,11 +202,6 @@ export default function Story() {
             <section id="countdown">
                 <Countdown />
             </section>
-
-            <SectionDivider />
-
-            {/* Ringkasan Majlis-Majlis */}
-            <EventsSummary />
 
             <SectionDivider />
 
