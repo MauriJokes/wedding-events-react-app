@@ -6,25 +6,33 @@ interface AturcaraItem {
     subitems?: string[];
 }
 
-interface EventDetailProps {
+export interface EventDetailProps {
+    /** Section anchor id (e.g. "khatam") */
+    sectionId: string;
     title: string;
     day: string;
     date: string;
     venue: string[];
     aturcara: (string | AturcaraItem)[];
+    /** CSS color value for the Tema Pakaian swatch */
     themeColor: string;
     themeLabel: string;
 }
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
     return (
-        <p className="text-[10px] tracking-[0.35em] text-[#9B8470] uppercase">
+        <p className="text-[10px] tracking-[0.38em] text-[#9B8470] uppercase">
             {children}
         </p>
     );
 }
 
+function ThinDivider() {
+    return <div className="mx-auto my-8 h-px w-16 bg-[#D4C4AE]" />;
+}
+
 export default function EventDetail({
+    sectionId,
     title,
     day,
     date,
@@ -34,51 +42,54 @@ export default function EventDetail({
     themeLabel,
 }: EventDetailProps) {
     return (
-        <div className="w-full min-h-screen bg-[#F5F0E8] px-6 py-20">
+        <section
+            id={sectionId}
+            className="w-full bg-[#F5F0E8] px-6 py-20"
+        >
             <div className="mx-auto max-w-sm">
-                {/* Title */}
+                {/* ── Title ── */}
                 <motion.h2
-                    initial={{ opacity: 0, y: 15 }}
+                    initial={{ opacity: 0, y: 14 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.7 }}
-                    className="font-serif text-xl font-light leading-snug tracking-[0.2em] text-[#3D2E1E] uppercase text-center whitespace-pre-line sm:text-2xl"
+                    className="font-serif text-xl font-light leading-snug tracking-[0.22em] text-[#3D2E1E] uppercase text-center whitespace-pre-line sm:text-2xl"
                 >
                     {title}
                 </motion.h2>
 
-                <div className="flex justify-center mt-6 mb-8">
+                {/* Floral divider */}
+                <div className="flex justify-center mt-7 mb-10">
                     <FloralDivider size="md" />
                 </div>
 
-                {/* Tarikh Majlis */}
+                {/* ── Tarikh Majlis ── */}
                 <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.1, duration: 0.6 }}
-                    className="mb-8 text-center"
+                    className="text-center"
                 >
                     <SectionLabel>Tarikh Majlis</SectionLabel>
-                    <div className="mt-3 space-y-0.5">
+                    <div className="mt-4 space-y-1">
                         <p className="font-serif text-sm font-light text-[#3D2E1E]">{day}</p>
                         <p className="font-serif text-sm font-light text-[#3D2E1E]">{date}</p>
                     </div>
                 </motion.div>
 
-                {/* Divider line */}
-                <div className="mx-auto mb-8 h-px w-16 bg-[#D4C4AE]" />
+                <ThinDivider />
 
-                {/* Bertempat Di */}
+                {/* ── Bertempat Di ── */}
                 <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: 0.2, duration: 0.6 }}
-                    className="mb-8 text-center"
+                    transition={{ delay: 0.15, duration: 0.6 }}
+                    className="text-center"
                 >
                     <SectionLabel>Bertempat Di</SectionLabel>
-                    <div className="mt-3 space-y-0.5">
+                    <div className="mt-4 space-y-1">
                         {venue.map((line, i) => (
                             <p key={i} className="text-sm font-light leading-relaxed text-[#6B5544]">
                                 {line}
@@ -87,82 +98,82 @@ export default function EventDetail({
                     </div>
                 </motion.div>
 
-                {/* Divider line */}
-                <div className="mx-auto mb-8 h-px w-16 bg-[#D4C4AE]" />
+                <ThinDivider />
 
-                {/* Aturcara Majlis */}
+                {/* ── Aturcara Majlis ── */}
                 <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: 0.3, duration: 0.6 }}
-                    className="mb-8"
+                    transition={{ delay: 0.2, duration: 0.6 }}
                 >
-                    <p className="mb-4 text-center text-[10px] tracking-[0.35em] text-[#9B8470] uppercase">
+                    <p className="mb-5 text-center text-[10px] tracking-[0.38em] text-[#9B8470] uppercase">
                         Aturcara Majlis
                     </p>
-                    <ul className="space-y-2">
+                    <ul className="space-y-2.5">
                         {aturcara.map((entry, i) => {
                             if (typeof entry === "string") {
                                 return (
                                     <li
                                         key={i}
-                                        className="flex items-start gap-2 text-sm font-light text-[#6B5544]"
+                                        className="flex items-start gap-2.5 text-sm font-light text-[#6B5544]"
                                     >
-                                        <span className="mt-[6px] h-1 w-1 flex-shrink-0 rounded-full bg-[#C4A882]" />
+                                        <span className="mt-[7px] h-1 w-1 flex-shrink-0 rounded-full bg-[#C4A882]" />
                                         <span>{entry}</span>
                                     </li>
                                 );
-                            } else {
-                                return (
-                                    <li key={i}>
-                                        <div className="flex items-start gap-2 text-sm font-light text-[#6B5544]">
-                                            <span className="mt-[6px] h-1 w-1 flex-shrink-0 rounded-full bg-[#C4A882]" />
-                                            <span>{entry.item}</span>
-                                        </div>
-                                        {entry.subitems && (
-                                            <ul className="mt-1 ml-5 space-y-1">
-                                                {entry.subitems.map((sub, j) => (
-                                                    <li
-                                                        key={j}
-                                                        className="flex items-start gap-2 text-xs font-light text-[#9B8470]"
-                                                    >
-                                                        <span className="mt-[5px] h-0.5 w-0.5 flex-shrink-0 rounded-full bg-[#C4A882]/60" />
-                                                        <span>{sub}</span>
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        )}
-                                    </li>
-                                );
                             }
+                            return (
+                                <li key={i}>
+                                    <div className="flex items-start gap-2.5 text-sm font-light text-[#6B5544]">
+                                        <span className="mt-[7px] h-1 w-1 flex-shrink-0 rounded-full bg-[#C4A882]" />
+                                        <span>{entry.item}</span>
+                                    </div>
+                                    {entry.subitems && (
+                                        <ul className="mt-1.5 ml-6 space-y-1.5">
+                                            {entry.subitems.map((sub, j) => (
+                                                <li
+                                                    key={j}
+                                                    className="flex items-start gap-2 text-[12px] font-light text-[#9B8470]"
+                                                >
+                                                    <span className="mt-[6px] h-[3px] w-[3px] flex-shrink-0 rounded-full bg-[#C4A882]/55" />
+                                                    <span>{sub}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    )}
+                                </li>
+                            );
                         })}
                     </ul>
                 </motion.div>
 
-                {/* Divider line */}
-                <div className="mx-auto mb-8 h-px w-16 bg-[#D4C4AE]" />
+                <ThinDivider />
 
-                {/* Tema Pakaian */}
+                {/* ── Tema Pakaian ── */}
                 <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: 0.4, duration: 0.6 }}
+                    transition={{ delay: 0.25, duration: 0.6 }}
                     className="text-center"
                 >
                     <SectionLabel>Tema Pakaian</SectionLabel>
-                    <div className="mt-5 flex flex-col items-center gap-2">
+                    {/* Color swatch circle */}
+                    <div className="mt-6 flex justify-center">
                         <div
-                            className="h-24 w-24 rounded-full shadow-sm"
+                            className="h-28 w-28 rounded-full shadow-sm"
                             style={{ backgroundColor: themeColor }}
+                            aria-label={`Tema pakaian: ${themeLabel}`}
+                            title={themeLabel}
                         />
-                        <p className="mt-1 text-[10px] tracking-[0.2em] text-[#9B8470] uppercase">
-                            {themeLabel}
-                        </p>
                     </div>
+                    <p className="mt-3 text-[10px] tracking-[0.22em] text-[#9B8470] uppercase">
+                        {themeLabel}
+                    </p>
                 </motion.div>
             </div>
-        </div>
+        </section>
     );
 }
+

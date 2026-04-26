@@ -1,14 +1,17 @@
 import { useLenis } from "../hooks/useLenis";
-import EventsSummary from "../components/timeline";
-import Countdown from "../components/countdown";
-import NikahDetails from "../components/nikah-details";
 import SectionNav from "../components/nav";
 import Hero from "@/components/hero";
-import FloralDivider from "@/components/floral-separator";
+import NikahDetails from "@/components/nikah-details";
+import EventsSummary from "@/components/timeline";
 import EventDetail from "@/components/event-detail";
+import type { EventDetailProps } from "@/components/event-detail";
+import Countdown from "@/components/countdown";
+import FloralDivider from "@/components/floral-separator";
 
-// ─── Event Data ────────────────────────────────────────────────────────────
-const eventKhatam = {
+// ─── Event data ──────────────────────────────────────────────────────────────
+
+const eventKhatam: EventDetailProps = {
+    sectionId: "khatam",
     title: "MAJLIS KHATAM AL-QURAN\nDAN MAJLIS BERBEDAK SIANG",
     day: "Hari Jumaat",
     date: "25 Disember 2026M / 15 Rejab 1448H",
@@ -40,7 +43,8 @@ const eventKhatam = {
     ],
 };
 
-const eventBerbedak = {
+const eventBerbedak: EventDetailProps = {
+    sectionId: "berbedak",
     title: "MAJLIS MALAM BERBEDAK\nDAN MAJLIS BERINAI",
     day: "Hari Sabtu",
     date: "26 Disember 2026M / 16 Rejab 1448H",
@@ -67,7 +71,8 @@ const eventBerbedak = {
     ],
 };
 
-const eventAkad = {
+const eventAkad: EventDetailProps = {
+    sectionId: "akad",
     title: "MAJLIS MENERIMA BERIAN\nDAN MAJLIS AKAD NIKAH",
     day: "Hari Ahad",
     date: "27 Disember 2026M / 17 Rejab 1448H",
@@ -99,7 +104,8 @@ const eventAkad = {
     ],
 };
 
-const eventBersanding = {
+const eventBersanding: EventDetailProps = {
+    sectionId: "bersanding",
     title: "MAJLIS BERSANDING",
     day: "Hari Isnin",
     date: "28 Disember 2026M / 18 Rejab 1448H",
@@ -125,14 +131,17 @@ const eventBersanding = {
     ],
 };
 
-// ─── Section Divider ────────────────────────────────────────────────────────
+// ─── Section divider ─────────────────────────────────────────────────────────
+
 function SectionDivider() {
     return (
-        <div className="flex w-full items-center justify-center py-6 bg-[#F5F0E8]">
+        <div className="flex w-full items-center justify-center bg-[#F5F0E8] py-6">
             <FloralDivider size="sm" />
         </div>
     );
 }
+
+// ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function Story() {
     useLenis();
@@ -141,59 +150,47 @@ export default function Story() {
         <div className="min-h-screen bg-[#F5F0E8] lg:pl-44">
             <SectionNav />
 
-            {/* HERO / COVER */}
-            <section id="home">
-                <Hero />
-            </section>
+            {/* Hero */}
+            <Hero />
+
+            {/* Invitation / Jemputan — dark background butts directly against hero */}
+            <NikahDetails />
 
             <SectionDivider />
 
-            {/* INVITATION (Assalamu'alaikum) */}
-            <section id="invitation">
-                <NikahDetails />
-            </section>
-
-            <SectionDivider />
-
-            {/* COUNTDOWN */}
-            <section id="countdown" className="bg-[#F5F0E8]">
+            {/* Countdown — before the summary */}
+            <section id="countdown">
                 <Countdown />
             </section>
 
             <SectionDivider />
 
-            {/* RINGKASAN MAJLIS */}
-            <section id="events">
-                <EventsSummary />
-            </section>
+            {/* Ringkasan Majlis-Majlis */}
+            <EventsSummary />
 
             <SectionDivider />
 
-            {/* EVENT 1: Khatam Al-Quran & Berbedak Siang */}
-            <section id="khatam">
-                <EventDetail {...eventKhatam} />
-            </section>
+            {/* Event 1 — Khatam Al-Quran & Berbedak Siang */}
+            <EventDetail {...eventKhatam} />
 
             <SectionDivider />
 
-            {/* EVENT 2: Malam Berbedak & Berinai */}
-            <section id="berbedak">
-                <EventDetail {...eventBerbedak} />
-            </section>
+            {/* Event 2 — Malam Berbedak & Berinai */}
+            <EventDetail {...eventBerbedak} />
 
             <SectionDivider />
 
-            {/* EVENT 3: Menerima Berian & Akad Nikah */}
-            <section id="akad">
-                <EventDetail {...eventAkad} />
-            </section>
+            {/* Event 3 — Menerima Berian & Akad Nikah */}
+            <EventDetail {...eventAkad} />
 
             <SectionDivider />
 
-            {/* EVENT 4: Bersanding */}
-            <section id="bersanding" className="pb-24 lg:pb-8">
+            {/* Event 4 — Bersanding */}
+            <div className="pb-24 lg:pb-8">
                 <EventDetail {...eventBersanding} />
-            </section>
+            </div>
         </div>
     );
 }
+
+// ─── Event Data ────────────────────────────────────────────────────────────
