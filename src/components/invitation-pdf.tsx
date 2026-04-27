@@ -3,7 +3,15 @@
  * No html2canvas, no DOM capture, no oklch issues.
  * Produces a crisp vector A4 PDF.
  */
-import { Document, Page, View, Text, StyleSheet, pdf } from "@react-pdf/renderer";
+import {
+    Document,
+    Page,
+    View,
+    Text,
+    Image,
+    StyleSheet,
+    pdf,
+} from "@react-pdf/renderer";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 interface PDFEventData {
@@ -22,17 +30,25 @@ const events: PDFEventData[] = [
         title: "Majlis Khatam Al-Quran & Majlis Berbedak Siang",
         day: "Hari Jumaat",
         date: "25 Disember 2026M / 15 Rejab 1448H",
-        venue: ["No. 10, Simpang 52-52", "Kg. Mata-Mata, Gadong BE1718", "Brunei Darussalam"],
+        venue: [
+            "No. 10, Simpang 52-52",
+            "Kg. Mata-Mata, Gadong BE1718",
+            "Brunei Darussalam",
+        ],
         themeColor: "#F0EFE9",
-        themeLabel: "Putih / White"
+        themeLabel: "Putih / White",
     },
     {
         title: "Majlis Malam Berbedak & Majlis Berinai",
         day: "Hari Sabtu",
         date: "26 Disember 2026M / 16 Rejab 1448H",
-        venue: ["No. 10, Simpang 52-52", "Kg. Mata-Mata, Gadong BE1718", "Brunei Darussalam"],
+        venue: [
+            "No. 10, Simpang 52-52",
+            "Kg. Mata-Mata, Gadong BE1718",
+            "Brunei Darussalam",
+        ],
         themeColor: "#DEA193",
-        themeLabel: "Merah Jambu / Rose Gold"
+        themeLabel: "Merah Jambu / Rose Gold",
     },
     {
         title: "Majlis Menerima Berian & Majlis Akad Nikah",
@@ -44,7 +60,7 @@ const events: PDFEventData[] = [
             "Brunei Darussalam",
         ],
         themeColor: "#7B4A2D",
-        themeLabel: "Coklat Gelap / Rich Brown"
+        themeLabel: "Coklat Gelap / Rich Brown",
     },
     {
         title: "Majlis Bersanding",
@@ -56,7 +72,7 @@ const events: PDFEventData[] = [
             "Brunei Darussalam",
         ],
         themeColor: "#1A2744",
-        themeLabel: "Biru Gelap / Dark Navy"
+        themeLabel: "Biru Gelap / Dark Navy",
     },
 ];
 
@@ -71,40 +87,109 @@ const S = StyleSheet.create({
         fontFamily: "Helvetica",
     },
     header: { alignItems: "center", marginBottom: 12 },
-    mainTitle: { fontSize: 26, fontFamily: "Times-Roman", color: "#3D2E1E", letterSpacing: 1, marginBottom: 5 },
-    subNames: { fontSize: 8, color: "#9B8470", letterSpacing: 1.2, textTransform: "uppercase", marginBottom: 3 },
+    mainTitle: {
+        fontSize: 26,
+        fontFamily: "Times-Roman",
+        color: "#3D2E1E",
+        letterSpacing: 1,
+        marginBottom: 5,
+    },
+    subNames: {
+        fontSize: 8,
+        color: "#9B8470",
+        letterSpacing: 1.2,
+        textTransform: "uppercase",
+        marginBottom: 3,
+    },
     dateRange: { fontSize: 8, color: "#9B8470" },
-    sectionLabel: { fontSize: 7, letterSpacing: 2.5, color: "#C4A882", textTransform: "uppercase", textAlign: "center", marginBottom: 14 },
+    sectionLabel: {
+        fontSize: 7,
+        letterSpacing: 2.5,
+        color: "#C4A882",
+        textTransform: "uppercase",
+        textAlign: "center",
+        marginBottom: 14,
+    },
     eventBlock: { marginBottom: 18 },
     eventHeader: { alignItems: "center", marginBottom: 7 },
-    eventNumber: { fontSize: 7, letterSpacing: 2, color: "#9B8470", textTransform: "uppercase", marginBottom: 3 },
-    eventTitle: { fontSize: 12, fontFamily: "Times-Roman", color: "#3D2E1E", textAlign: "center", letterSpacing: 0.5, textTransform: "uppercase", marginBottom: 2 },
+    eventNumber: {
+        fontSize: 7,
+        letterSpacing: 2,
+        color: "#9B8470",
+        textTransform: "uppercase",
+        marginBottom: 3,
+    },
+    eventTitle: {
+        fontSize: 12,
+        fontFamily: "Times-Roman",
+        color: "#3D2E1E",
+        textAlign: "center",
+        letterSpacing: 0.5,
+        textTransform: "uppercase",
+        marginBottom: 2,
+    },
     eventDate: { fontSize: 8, color: "#9B8470" },
     venueThemeRow: { flexDirection: "row", marginVertical: 6 },
     venueCol: { flex: 1, paddingRight: 10 },
     themeCol: { alignItems: "flex-end" },
-    colLabel: { fontSize: 7, letterSpacing: 1.5, color: "#C4A882", textTransform: "uppercase", marginBottom: 3 },
+    colLabel: {
+        fontSize: 7,
+        letterSpacing: 1.5,
+        color: "#C4A882",
+        textTransform: "uppercase",
+        marginBottom: 3,
+    },
     venueText: { fontSize: 8, color: "#3D2E1E", lineHeight: 1.5 },
     themeSwatchRow: { flexDirection: "row", alignItems: "center" },
-    themeSwatch: { width: 10, height: 10, borderRadius: 5, borderWidth: 0.5, borderColor: "#D4C4AE", marginRight: 5 },
+    themeSwatch: {
+        width: 10,
+        height: 10,
+        borderRadius: 5,
+        borderWidth: 0.5,
+        borderColor: "#D4C4AE",
+        marginRight: 5,
+    },
     themeText: { fontSize: 8, color: "#3D2E1E" },
-    footer: { marginTop: 14, borderTopWidth: 0.5, borderTopColor: "#D4C4AE", paddingTop: 10, alignItems: "center" },
+    footer: {
+        // marginTop: 14,
+        // borderTopWidth: 0.5,
+        // borderTopColor: "#D4C4AE",
+        // paddingTop: 10,
+        alignItems: "center",
+    },
     footerText: { fontSize: 9, fontFamily: "Times-Roman", color: "#9B8470" },
+    logo: { width: 70, height: 70, marginBottom: 6 },
 });
 
 // ─── Sub-components ───────────────────────────────────────────────────────────
 
 function GoldRule() {
-    return <View style={{ height: 0.5, backgroundColor: "#C4A882", marginVertical: 7 }} />;
+    return (
+        <View
+            style={{
+                height: 0.5,
+                backgroundColor: "#C4A882",
+                marginVertical: 7,
+            }}
+        />
+    );
 }
 
-function PDFEventBlock({ event, index }: { event: PDFEventData; index: number }) {
+function PDFEventBlock({
+    event,
+    index,
+}: {
+    event: PDFEventData;
+    index: number;
+}) {
     return (
         <View style={S.eventBlock}>
             <View style={S.eventHeader}>
                 <Text style={S.eventNumber}>Majlis {index + 1}</Text>
                 <Text style={S.eventTitle}>{event.title}</Text>
-                <Text style={S.eventDate}>{event.day}  .  {event.date}</Text>
+                <Text style={S.eventDate}>
+                    {event.day} . {event.date}
+                </Text>
             </View>
 
             <GoldRule />
@@ -113,13 +198,20 @@ function PDFEventBlock({ event, index }: { event: PDFEventData; index: number })
                 <View style={S.venueCol}>
                     <Text style={S.colLabel}>Bertempat Di</Text>
                     {event.venue.map((line, i) => (
-                        <Text key={i} style={S.venueText}>{line}</Text>
+                        <Text key={i} style={S.venueText}>
+                            {line}
+                        </Text>
                     ))}
                 </View>
                 <View style={S.themeCol}>
                     <Text style={S.colLabel}>Tema Pakaian</Text>
                     <View style={S.themeSwatchRow}>
-                        <View style={[S.themeSwatch, { backgroundColor: event.themeColor }]} />
+                        <View
+                            style={[
+                                S.themeSwatch,
+                                { backgroundColor: event.themeColor },
+                            ]}
+                        />
                         <Text style={S.themeText}>{event.themeLabel}</Text>
                     </View>
                 </View>
@@ -130,17 +222,30 @@ function PDFEventBlock({ event, index }: { event: PDFEventData; index: number })
     );
 }
 
-function InvitationPDFDocument() {
+function InvitationPDFDocument({ logoSrc }: { logoSrc: string }) {
     return (
-        <Document title="Jemputan Nikah - Izyan & Adam" author="Izyan & Adam Wedding">
+        <Document
+            title="Jemputan Nikah - Izyan & Adam"
+            author="Izyan & Adam Wedding"
+        >
             <Page size="A4" style={S.page}>
                 <View style={S.header}>
-                    <Text style={S.mainTitle}>Izyan & Adam</Text>
-                    <Text style={S.subNames}>Dayangku Izyan Naqiyah  .  Nik Adam Danish</Text>
-                    <Text style={S.dateRange}>25 - 28 Disember 2026  .  Brunei Darussalam</Text>
+                    <Image style={S.logo} src={logoSrc} />
+                    <Text style={S.subNames}>
+                        Dayangku Izyan Naqiyah . Nik Adam Danish
+                    </Text>
+                    <Text style={S.dateRange}>
+                        25 - 28 Disember 2026 . Brunei Darussalam
+                    </Text>
                 </View>
 
-                <View style={{ height: 0.5, backgroundColor: "#C4A882", marginBottom: 12 }} />
+                <View
+                    style={{
+                        height: 0.5,
+                        backgroundColor: "#C4A882",
+                        marginBottom: 12,
+                    }}
+                />
 
                 <Text style={S.sectionLabel}>Ringkasan Majlis-Majlis</Text>
 
@@ -149,7 +254,10 @@ function InvitationPDFDocument() {
                 ))}
 
                 <View style={S.footer}>
-                    <Text style={S.footerText}>Semoga Allah SWT merahmati dan memberkati perkahwinan ini.</Text>
+                    <Text style={S.footerText}>
+                        Semoga Allah SWT merahmati dan memberkati perkahwinan
+                        ini.
+                    </Text>
                 </View>
             </Page>
         </Document>
@@ -160,8 +268,11 @@ function InvitationPDFDocument() {
 
 export async function downloadPDF() {
     try {
+        const logoSrc = window.location.origin + "/logo.png";
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const blob = await pdf(<InvitationPDFDocument /> as any).toBlob();
+        const blob = await pdf(
+            (<InvitationPDFDocument logoSrc={logoSrc} />) as any,
+        ).toBlob();
         const url = URL.createObjectURL(blob);
         const a = document.createElement("a");
         a.href = url;

@@ -2,11 +2,10 @@ import { useState } from "react";
 import { useLenis } from "../hooks/useLenis";
 import SectionNav from "../components/nav";
 import Hero from "@/components/hero";
-import NikahDetails from "@/components/nikah-details";
+import NikahDetails, { OrnateFloralBorder } from "@/components/nikah-details";
 import EventDetail from "@/components/event-detail";
 import type { EventDetailProps } from "@/components/event-detail";
 import Countdown from "@/components/countdown";
-import FloralDivider from "@/components/floral-separator";
 
 // ─── Event data ──────────────────────────────────────────────────────────────
 
@@ -58,7 +57,7 @@ const eventBerbedak: EventDetailProps = {
         "Brunei Darussalam",
     ],
     themeColor: "#DEA193",
-    themeLabel: "Rose Gold / Merah Jambu",
+    themeLabel: "Merah Jambu / Rose Gold",
     dresscode: {
         lelaki: "Baju Melayu",
         perempuan: "Baju Kurung atau Gaun Formal",
@@ -172,7 +171,7 @@ const eventBersanding: EventDetailProps = {
 function SectionDivider() {
     return (
         <div className="flex w-full items-center justify-center bg-[#F5F0E8] py-6">
-            <FloralDivider size="sm" />
+            <OrnateFloralBorder />
         </div>
     );
 }
@@ -224,8 +223,11 @@ export default function Story({ onEnter }: { onEnter?: () => void }) {
             <div className="pb-24 lg:pb-8">
                 <EventDetail {...eventBersanding} />
             </div>
+
+            {/* Footer */}
+            <div className="pt-4 pb-18 text-center text-[12px] leading-relaxed tracking-wide text-[#C4A882] lg:pb-10">
+                Direka dengan penuh kasih sayang oleh Nik Adam
+            </div>
         </div>
     );
 }
-
-// ─── Event Data ────────────────────────────────────────────────────────────

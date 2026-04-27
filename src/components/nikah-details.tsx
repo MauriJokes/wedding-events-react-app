@@ -74,7 +74,7 @@ function downloadAllEventsIcs() {
  * Mimics the rose-and-stem decorations visible in the Canva design (Image 6).
  * Top variant faces downward; bottom variant is flipped.
  */
-function OrnateFloralBorder({ flip = false }: { flip?: boolean }) {
+export function OrnateFloralBorder({ flip = false }: { flip?: boolean }) {
     return (
         <div
             className="flex w-full justify-center"
@@ -257,14 +257,9 @@ export default function NikahDetails({
                     transition={{ delay: 0.1, duration: 0.8 }}
                 >
                     <img
-                        src="/bismillah.svg"
+                        src="/bismillah.png"
                         alt="Bismillah"
-                        style={{
-                            width: "clamp(320px, 90vw, 560px)",
-                            marginTop: "-28%",
-                            marginBottom: "-22%",
-                            filter: "brightness(0) saturate(100%) invert(77%) sepia(55%) saturate(350%) hue-rotate(5deg) brightness(90%)",
-                        }}
+                        className="-mt-45 -mb-40 h-100 object-contain"
                     />
                 </motion.div>
 
