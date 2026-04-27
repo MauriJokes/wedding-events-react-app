@@ -63,6 +63,7 @@ export interface EventDetailProps {
     themeLabel: string;
     dresscode: { lelaki: string; perempuan: string };
     location: string;
+    index?: number;
 }
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
@@ -88,9 +89,18 @@ export default function EventDetail({
     themeLabel,
     dresscode,
     location,
+    index = 0,
 }: EventDetailProps) {
     return (
-        <section id={sectionId} className="w-full bg-[#F5F0E8] px-6 py-20">
+        <section
+            id={sectionId}
+            className="w-full bg-[#F5F0E8] px-6 py-15"
+            style={
+                index > 0
+                    ? { borderTop: "1px solid rgba(196, 168, 130, 0.25)" }
+                    : undefined
+            }
+        >
             <div className="mx-auto max-w-sm">
                 {/* ── Title ── */}
                 <motion.h2

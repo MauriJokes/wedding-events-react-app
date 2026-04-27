@@ -32,17 +32,39 @@ export default function SectionNav({
     const [active, setActive] = useState("home");
 
     useEffect(() => {
+        // Map of all sections currently overlapping the top-half of the viewport
+        const visibleMap = new Map<string, true>();
+
+        const pick = () => {
+            if (visibleMap.size === 0) return;
+            // Among visible sections, pick the one whose top is highest on screen
+            // (largest top value = most recently scrolled into view)
+            let best: string | null = null;
+            let bestTop = -Infinity;
+            visibleMap.forEach((_, id) => {
+                const el = document.getElementById(id);
+                if (!el) return;
+                const top = el.getBoundingClientRect().top;
+                if (top > bestTop) {
+                    bestTop = top;
+                    best = id;
+                }
+            });
+            if (best) setActive(best);
+        };
+
         const observer = new IntersectionObserver(
             (entries) => {
-                // Pick the entry that intersects the most
-                const visible = entries
-                    .filter((e) => e.isIntersecting)
-                    .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-                if (visible.length > 0) {
-                    setActive(visible[0].target.id);
-                }
+                entries.forEach((e) => {
+                    if (e.isIntersecting) {
+                        visibleMap.set(e.target.id, true);
+                    } else {
+                        visibleMap.delete(e.target.id);
+                    }
+                });
+                pick();
             },
-            { threshold: [0.25, 0.5], rootMargin: "0px 0px -10% 0px" },
+            { threshold: 0, rootMargin: "0px 0px -50% 0px" },
         );
 
         sidebarSections.forEach(({ id }) => {

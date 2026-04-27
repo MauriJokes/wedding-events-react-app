@@ -168,10 +168,10 @@ const eventBersanding: EventDetailProps = {
 
 // ─── Section divider ─────────────────────────────────────────────────────────
 
-function SectionDivider() {
+function SectionDivider({ flip }: { flip?: boolean }) {
     return (
         <div className="flex w-full items-center justify-center bg-[#F5F0E8] py-6">
-            <OrnateFloralBorder />
+            <OrnateFloralBorder flip={flip} />
         </div>
     );
 }
@@ -202,26 +202,20 @@ export default function Story({ onEnter }: { onEnter?: () => void }) {
                 <Countdown />
             </section>
 
-            <SectionDivider />
+            <SectionDivider flip={true} />
 
             {/* Event 1 — Khatam Al-Quran & Berbedak Siang */}
-            <EventDetail {...eventKhatam} />
-
-            <SectionDivider />
+            <EventDetail {...eventKhatam} index={0} />
 
             {/* Event 2 — Malam Berbedak & Berinai */}
-            <EventDetail {...eventBerbedak} />
-
-            <SectionDivider />
+            <EventDetail {...eventBerbedak} index={1} />
 
             {/* Event 3 — Menerima Berian & Akad Nikah */}
-            <EventDetail {...eventAkad} />
-
-            <SectionDivider />
+            <EventDetail {...eventAkad} index={2} />
 
             {/* Event 4 — Bersanding */}
             <div className="pb-24 lg:pb-8">
-                <EventDetail {...eventBersanding} />
+                <EventDetail {...eventBersanding} index={3} />
             </div>
 
             {/* Footer */}
