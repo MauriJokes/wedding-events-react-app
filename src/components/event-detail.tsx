@@ -2,14 +2,44 @@ import { motion } from "framer-motion";
 
 function GoldLineDivider() {
     return (
-        <svg width="280" height="44" viewBox="0 0 280 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <svg
+            width="280"
+            height="44"
+            viewBox="0 0 280 44"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+        >
             {/* Left line */}
-            <line x1="10" y1="22" x2="124" y2="22" stroke="#C4A882" strokeWidth="0.75" strokeLinecap="round" />
+            <line
+                x1="10"
+                y1="22"
+                x2="124"
+                y2="22"
+                stroke="#C4A882"
+                strokeWidth="0.75"
+                strokeLinecap="round"
+            />
             {/* Center ornament — kept exactly as FloralDivider */}
             <circle cx="140" cy="22" r="2.2" fill="#3D2E1E" />
-            <circle cx="140" cy="22" r="4.5" stroke="#3D2E1E" strokeWidth="0.5" fill="none" />
+            <circle
+                cx="140"
+                cy="22"
+                r="4.5"
+                stroke="#3D2E1E"
+                strokeWidth="0.5"
+                fill="none"
+            />
             {/* Right line */}
-            <line x1="156" y1="22" x2="270" y2="22" stroke="#C4A882" strokeWidth="0.75" strokeLinecap="round" />
+            <line
+                x1="156"
+                y1="22"
+                x2="270"
+                y2="22"
+                stroke="#C4A882"
+                strokeWidth="0.75"
+                strokeLinecap="round"
+            />
         </svg>
     );
 }

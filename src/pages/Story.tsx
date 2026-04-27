@@ -226,7 +226,7 @@ export default function Story({ onEnter }: { onEnter?: () => void }) {
 
             {/* Footer */}
             <div className="pt-4 pb-18 text-center text-[12px] leading-relaxed tracking-wide text-[#C4A882] lg:pb-10">
-                Direka dengan penuh kasih sayang oleh Nik Adam
+                Direka oleh Nik Adam
             </div>
         </div>
     );
