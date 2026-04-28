@@ -20,7 +20,7 @@ const eventKhatam: EventDetailProps = {
         "Brunei Darussalam",
     ],
     themeColor: "#F5F5F0",
-    themeLabel: "Putih / White",
+    themeLabel: "White / Putih",
     dresscode: { lelaki: "Kurta", perempuan: "Jubah atau Abaya" },
     aturcara: [
         { time: "9:00 PG", item: "Ketibaan Tetamu dan Jemputan" },
@@ -57,7 +57,7 @@ const eventBerbedak: EventDetailProps = {
         "Brunei Darussalam",
     ],
     themeColor: "#DEA193",
-    themeLabel: "Merah Jambu / Rose Gold",
+    themeLabel: "Rose Gold / Merah Jambu",
     dresscode: {
         lelaki: "Baju Melayu",
         perempuan: "Baju Kurung atau Gaun Formal",
@@ -97,7 +97,7 @@ const eventAkad: EventDetailProps = {
         "Brunei Darussalam",
     ],
     themeColor: "#7B4A2D",
-    themeLabel: "Coklat Gelap / Rich Brown",
+    themeLabel: "Rich Brown / Coklat Gelap",
     dresscode: {
         lelaki: "Baju Melayu",
         perempuan: "Baju Kurung atau Gaun Formal",
@@ -144,7 +144,7 @@ const eventBersanding: EventDetailProps = {
         "Brunei Darussalam",
     ],
     themeColor: "#1A2744",
-    themeLabel: "Biru Gelap / Dark Navy",
+    themeLabel: "Dark Navy / Biru Gelap",
     dresscode: {
         lelaki: "Baju Melayu",
         perempuan: "Baju Kurung atau Gaun Formal",

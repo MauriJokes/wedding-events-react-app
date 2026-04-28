@@ -30,25 +30,17 @@ const events: PDFEventData[] = [
         title: "Majlis Khatam Al-Quran & Majlis Berbedak Siang",
         day: "Hari Jumaat",
         date: "25 Disember 2026M / 15 Rejab 1448H",
-        venue: [
-            "No. 10, Simpang 52-52",
-            "Kg. Mata-Mata, Gadong BE1718",
-            "Brunei Darussalam",
-        ],
+        venue: ["No. 10, Simpang 52-52", "Kg. Mata-Mata, Gadong BE1718"],
         themeColor: "#F0EFE9",
-        themeLabel: "Putih / White",
+        themeLabel: "White/ Putih",
     },
     {
         title: "Majlis Malam Berbedak & Majlis Berinai",
         day: "Hari Sabtu",
         date: "26 Disember 2026M / 16 Rejab 1448H",
-        venue: [
-            "No. 10, Simpang 52-52",
-            "Kg. Mata-Mata, Gadong BE1718",
-            "Brunei Darussalam",
-        ],
+        venue: ["No. 10, Simpang 52-52", "Kg. Mata-Mata, Gadong BE1718"],
         themeColor: "#DEA193",
-        themeLabel: "Merah Jambu / Rose Gold",
+        themeLabel: "Rose Gold / Merah Jambu",
     },
     {
         title: "Majlis Menerima Berian & Majlis Akad Nikah",
@@ -57,10 +49,9 @@ const events: PDFEventData[] = [
         venue: [
             "The Garden's Veranda, Rimba Garden Central (RGC)",
             "Simpang 127, Kg. Rimba, Gadong BE3119",
-            "Brunei Darussalam",
         ],
         themeColor: "#7B4A2D",
-        themeLabel: "Coklat Gelap / Rich Brown",
+        themeLabel: "Rich Brown / Coklat Gelap",
     },
     {
         title: "Majlis Bersanding",
@@ -69,10 +60,9 @@ const events: PDFEventData[] = [
         venue: [
             "Tarindak D'Polo, Royal Berkshire Hall",
             "Jerudong Park Polo & Riding Park, Kg. Jerudong, BG3122",
-            "Brunei Darussalam",
         ],
         themeColor: "#1A2744",
-        themeLabel: "Biru Gelap / Dark Navy",
+        themeLabel: "Dark Navy / Biru Gelap",
     },
 ];
 
