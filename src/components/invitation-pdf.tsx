@@ -32,7 +32,7 @@ const events: PDFEventData[] = [
         date: "25 Disember 2026M / 15 Rejab 1448H",
         venue: ["No. 10, Simpang 52-52", "Kg. Mata-Mata, Gadong BE1718"],
         themeColor: "#F0EFE9",
-        themeLabel: "White/ Putih",
+        themeLabel: "White / Putih",
     },
     {
         title: "Majlis Malam Berbedak & Majlis Berinai",
