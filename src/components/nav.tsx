@@ -5,7 +5,7 @@ import { Mail, BookOpen, Sparkles, Heart, Crown, Timer } from "lucide-react";
 // ─── Section definitions ────────────────────────────────────────────────────
 
 const sidebarSections = [
-    { id: "invitation", label: "Jemputan", group: "main" },
+    { id: "invitation", label: "Aluan", group: "main" },
     { id: "countdown", label: "Kiraan Hari", group: "main" },
     { id: "khatam", label: "Khatam & Berbedak Siang", group: "event" },
     { id: "berbedak", label: "Malam Berbedak & Berinai", group: "event" },
@@ -14,7 +14,7 @@ const sidebarSections = [
 ];
 
 const bottomBarSections = [
-    { id: "invitation", label: "Jemputan", Icon: Mail },
+    { id: "invitation", label: "Aluan", Icon: Mail },
     { id: "countdown", label: "Kiraan", Icon: Timer },
     { id: "khatam", label: "Khatam", Icon: BookOpen },
     { id: "berbedak", label: "Berbedak", Icon: Sparkles },
@@ -95,13 +95,13 @@ export default function SectionNav({
                 >
                     {/* Logo / Monogram */}
                     <div className="px-5 pt-10 pb-8 text-center">
-                        <p className="font-serif text-xs tracking-[0.28em] text-[#6B5544] uppercase">
+                        <p className="font-serif text-xs tracking-[0.28em] text-[#2E3A4A] uppercase">
                             Izyan &amp; Adam
                         </p>
-                        <p className="mt-1 text-[9px] tracking-[0.22em] text-[#9B8470] uppercase">
+                        <p className="mt-1 text-[9px] tracking-[0.22em] text-[#2E3A4A]/60 uppercase">
                             25 – 28 Dec 2026
                         </p>
-                        <div className="mx-auto mt-5 h-px w-10 bg-[#D4C4AE]/70" />
+                        <div className="mx-auto mt-5 h-px w-10 bg-[#2E3A4A]/20" />
                     </div>
 
                     {/* Nav items */}
@@ -115,14 +115,14 @@ export default function SectionNav({
                             return (
                                 <li key={s.id}>
                                     {showGroupDivider && (
-                                        <div className="mx-2 my-3 h-px bg-[#D4C4AE]/50" />
+                                        <div className="mx-2 my-3 h-px bg-[#2E3A4A]/15" />
                                     )}
                                     <button
                                         onClick={() => scrollTo(s.id)}
                                         className={`w-full rounded-sm px-3 py-2 text-left text-[11px] tracking-wide transition-all duration-200 ${
                                             isActive
-                                                ? "bg-[#3D2E1E]/6 font-medium text-[#3D2E1E]"
-                                                : "text-[#9B8470] hover:text-[#6B5544]"
+                                                ? "bg-[#2E3A4A]/10 font-semibold text-[#2E3A4A]"
+                                                : "text-[#2E3A4A]/45 hover:text-[#2E3A4A]/75"
                                         }`}
                                         aria-current={
                                             isActive ? "location" : undefined
@@ -132,7 +132,7 @@ export default function SectionNav({
                                             <span
                                                 className={`inline-block h-1 w-1 flex-shrink-0 rounded-full transition-colors duration-200 ${
                                                     isActive
-                                                        ? "bg-[#C4A882]"
+                                                        ? "bg-[#2E3A4A]"
                                                         : "bg-transparent"
                                                 }`}
                                             />
@@ -146,8 +146,8 @@ export default function SectionNav({
 
                     {/* Footer mark */}
                     <div className="px-5 pb-8 text-center">
-                        <div className="mx-auto mb-3 h-px w-10 bg-[#D4C4AE]/60" />
-                        <p className="text-[9px] tracking-[0.2em] text-[#C4A882] uppercase">
+                        <div className="mx-auto mb-3 h-px w-10 bg-[#2E3A4A]/20" />
+                        <p className="text-[9px] tracking-[0.2em] text-[#2E3A4A]/50 uppercase">
                             Brunei Darussalam
                         </p>
                     </div>
@@ -161,7 +161,7 @@ export default function SectionNav({
                     aria-label="Section navigation"
                 >
                     <div
-                        className="flex items-stretch justify-around border-t border-[#D4C4AE]/60 bg-[#F5F0E8]/96 shadow-lg backdrop-blur-md"
+                        className="flex items-stretch justify-around border-t border-[#2E3A4A]/15 bg-[#F5F0E8]/96 shadow-lg backdrop-blur-md"
                         style={{
                             paddingBottom:
                                 "calc(0.5rem + env(safe-area-inset-bottom))",
@@ -183,16 +183,16 @@ export default function SectionNav({
                                         size={17}
                                         className={
                                             isActive
-                                                ? "text-[#6B5544]"
-                                                : "text-[#C4A882]/70"
+                                                ? "text-[#2E3A4A]"
+                                                : "text-[#2E3A4A]/40"
                                         }
-                                        strokeWidth={isActive ? 2 : 1.5}
+                                        strokeWidth={isActive ? 2.5 : 2.0}
                                     />
                                     <span
                                         className={`text-[8.5px] tracking-wide ${
                                             isActive
-                                                ? "font-medium text-[#6B5544]"
-                                                : "text-[#B8A898]"
+                                                ? "font-semibold text-[#2E3A4A]"
+                                                : "text-[#2E3A4A]/40"
                                         }`}
                                     >
                                         {label}
@@ -200,7 +200,7 @@ export default function SectionNav({
                                     <div
                                         className={`h-0.5 w-4 rounded-full transition-colors duration-200 ${
                                             isActive
-                                                ? "bg-[#C4A882]"
+                                                ? "bg-[#2E3A4A]"
                                                 : "bg-transparent"
                                         }`}
                                     />

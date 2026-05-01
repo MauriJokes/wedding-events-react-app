@@ -1,9 +1,15 @@
 import { motion } from "framer-motion";
 import { InvitationPDFLink } from "./invitation-pdf";
 
-function formatIcsDate(year: number, month: number, day: number, hour: number) {
+function formatIcsDate(
+    year: number,
+    month: number,
+    day: number,
+    hour: number,
+    minute: number,
+) {
     const pad = (n: number) => String(n).padStart(2, "0");
-    return `${year}${pad(month)}${pad(day)}T${pad(hour)}0000`;
+    return `${year}${pad(month)}${pad(day)}T${pad(hour)}${pad(minute)}00`;
 }
 
 function downloadAllEventsIcs() {
@@ -13,6 +19,10 @@ function downloadAllEventsIcs() {
             year: 2026,
             month: 12,
             day: 25,
+            startHour: 14,
+            startMinute: 15,
+            endHour: 18,
+            endMinute: 0,
             location: "Rumah Pengantin Perempuan",
         },
         {
@@ -20,6 +30,10 @@ function downloadAllEventsIcs() {
             year: 2026,
             month: 12,
             day: 26,
+            startHour: 19,
+            startMinute: 30,
+            endHour: 23,
+            endMinute: 0,
             location: "Rumah Pengantin Perempuan",
         },
         {
@@ -27,6 +41,10 @@ function downloadAllEventsIcs() {
             year: 2026,
             month: 12,
             day: 27,
+            startHour: 14,
+            startMinute: 0,
+            endHour: 18,
+            endMinute: 0,
             location: "The Garden's Veranda",
         },
         {
@@ -34,6 +52,10 @@ function downloadAllEventsIcs() {
             year: 2026,
             month: 12,
             day: 28,
+            startHour: 19,
+            startMinute: 0,
+            endHour: 23,
+            endMinute: 0,
             location: "Tarindak D'Polo",
         },
     ];
@@ -42,8 +64,8 @@ function downloadAllEventsIcs() {
             [
                 "BEGIN:VEVENT",
                 `UID:izyan-adam-2026-${i + 1}@wedding`,
-                `DTSTART;TZID=Asia/Brunei:${formatIcsDate(e.year, e.month, e.day, 8)}`,
-                `DTEND;TZID=Asia/Brunei:${formatIcsDate(e.year, e.month, e.day, 17)}`,
+                `DTSTART;TZID=Asia/Brunei:${formatIcsDate(e.year, e.month, e.day, e.startHour, e.startMinute)}`,
+                `DTEND;TZID=Asia/Brunei:${formatIcsDate(e.year, e.month, e.day, e.endHour, e.endMinute)}`,
                 `SUMMARY:${e.title}`,
                 `LOCATION:${e.location}`,
                 "DESCRIPTION:Perkahwinan Dayangku Izyan Naqiyah & Nik Adam Danish",

@@ -246,7 +246,8 @@ export function InvitationPDFDocument({ logoSrc }: { logoSrc: string }) {
 
                 <View style={S.footer}>
                     <Text style={S.footerText}>
-                        Semoga majlis ini dipenuhi rahmat dan keberkatan.
+                        Semoga Allah S.W.T memberkati, merahmati, serta
+                        melancarkan segala urusan Majlis-Majlis tersebut
                     </Text>
                 </View>
             </Page>
@@ -287,9 +288,13 @@ export function InvitationPDFLink({
         const isIOS = /iP(ad|hone|od)/i.test(navigator.userAgent);
         if (isIOS && navigator.canShare) {
             e.preventDefault();
-            const file = new File([instance.blob], "jemputan-nikah.pdf", {
-                type: "application/pdf",
-            });
+            const file = new File(
+                [instance.blob],
+                "jemputan-nikah-izyan-adam.pdf",
+                {
+                    type: "application/pdf",
+                },
+            );
             if (navigator.canShare({ files: [file] })) {
                 navigator.share({
                     files: [file],
@@ -303,7 +308,7 @@ export function InvitationPDFLink({
     return (
         <a
             href={instance.url ?? "#"}
-            download="jemputan-nikah.pdf"
+            download="jemputan-nikah-izyan-adam.pdf"
             onClick={handleClick}
             className={className}
             aria-disabled={instance.loading}

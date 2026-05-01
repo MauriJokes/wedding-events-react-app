@@ -90,7 +90,7 @@ const eventAkad: EventDetailProps = {
     aturcara: [
         { time: "2:00 PTG", item: "Menerima Jemputan" },
         {
-            time: "2:00 PTG",
+            time: "2:30 PTG",
             item: "Rombongan Pengantin Lelaki Dijangka Tiba",
         },
         {
@@ -137,8 +137,8 @@ const eventBersanding: EventDetailProps = {
         perempuan: "Baju Kurung atau Gaun Formal",
     },
     aturcara: [
-        { time: "7:00 MLM - 8:00 MLM", item: "Menerima Jemputan" },
-        { time: "", item: "Perarakan Masuk Diraja Sehari" },
+        { time: "7:00 MLM", item: "Menerima Jemputan" },
+        { time: "8:00 MLM", item: "Perarakan Masuk Diraja Sehari" },
         { time: "", item: "Iringan Persembahan Tausyeh" },
         {
             time: "",
@@ -201,7 +201,7 @@ export default function Story({ onEnter }: { onEnter?: () => void }) {
             <EventDetail {...eventAkad} index={2} />
 
             {/* Event 4 — Bersanding */}
-            <div className="pb-24 lg:pb-8">
+            <div className="lg:pb-8">
                 <EventDetail {...eventBersanding} index={3} />
             </div>
 
