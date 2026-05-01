@@ -10,8 +10,9 @@ import {
     Text,
     Image,
     StyleSheet,
-    pdf,
+    usePDF,
 } from "@react-pdf/renderer";
+import { useEffect } from "react";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 interface PDFEventData {
@@ -62,7 +63,7 @@ const events: PDFEventData[] = [
             "Jerudong Park Polo & Riding Park, Kg. Jerudong, BG3122",
         ],
         themeColor: "#1A2744",
-        themeLabel: "Dark Navy / Biru Gelap",
+        themeLabel: "Navy Blue / Biru Gelap",
     },
 ];
 
@@ -148,7 +149,7 @@ const S = StyleSheet.create({
         alignItems: "center",
     },
     footerText: { fontSize: 9, fontFamily: "Times-Roman", color: "#9B8470" },
-    logo: { width: 70, height: 70, marginBottom: 6 },
+    logo: { width: 70, height: 70, marginBottom: 24 },
 });
 
 // ─── Sub-components ───────────────────────────────────────────────────────────
@@ -212,7 +213,7 @@ function PDFEventBlock({
     );
 }
 
-function InvitationPDFDocument({ logoSrc }: { logoSrc: string }) {
+export function InvitationPDFDocument({ logoSrc }: { logoSrc: string }) {
     return (
         <Document
             title="Jemputan Nikah - Izyan & Adam"
@@ -245,8 +246,7 @@ function InvitationPDFDocument({ logoSrc }: { logoSrc: string }) {
 
                 <View style={S.footer}>
                     <Text style={S.footerText}>
-                        Semoga Allah SWT merahmati dan memberkati perkahwinan
-                        ini.
+                        Semoga majlis ini dipenuhi rahmat dan keberkatan.
                     </Text>
                 </View>
             </Page>
@@ -254,24 +254,63 @@ function InvitationPDFDocument({ logoSrc }: { logoSrc: string }) {
     );
 }
 
-// ─── Download function ────────────────────────────────────────────────────────
+// ─── Download link component ─────────────────────────────────────────────────
 
-export async function downloadPDF() {
-    try {
-        const logoSrc = window.location.origin + "/logo.png";
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const blob = await pdf(
-            (<InvitationPDFDocument logoSrc={logoSrc} />) as any,
-        ).toBlob();
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = "jemputan-nikah.pdf";
-        a.click();
-        URL.revokeObjectURL(url);
-    } catch (err) {
-        console.error("[PDF] Generation failed:", err);
+// Pre-generates the PDF blob on mount using usePDF so that when the user taps
+// the button the blob is already ready. This is critical for iOS Safari: the
+// Web Share API (navigator.share) must be called synchronously within a user
+// gesture — if we await async PDF generation first, iOS drops the gesture
+// context and silently ignores the share call.
+export function InvitationPDFLink({
+    children,
+    className,
+}: {
+    children: React.ReactNode;
+    className?: string;
+}) {
+    const logoSrc = window.location.origin + "/logo.png";
+    const [instance, updateInstance] = usePDF({
+        document: <InvitationPDFDocument logoSrc={logoSrc} />,
+    });
+
+    // Ensure the PDF is generated as soon as the component mounts
+    useEffect(() => {
+        updateInstance(<InvitationPDFDocument logoSrc={logoSrc} />);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    function handleClick(e: React.MouseEvent<HTMLAnchorElement>) {
+        if (instance.loading || !instance.blob) return;
+
+        // iOS Safari: use Web Share API synchronously — blob is pre-generated
+        // so there's no async gap that would lose the user gesture context.
+        const isIOS = /iP(ad|hone|od)/i.test(navigator.userAgent);
+        if (isIOS && navigator.canShare) {
+            e.preventDefault();
+            const file = new File([instance.blob], "jemputan-nikah.pdf", {
+                type: "application/pdf",
+            });
+            if (navigator.canShare({ files: [file] })) {
+                navigator.share({
+                    files: [file],
+                    title: "Jemputan Nikah — Izyan & Adam",
+                });
+            }
+        }
+        // All other browsers: let the default <a download> behaviour proceed
     }
+
+    return (
+        <a
+            href={instance.url ?? "#"}
+            download="jemputan-nikah.pdf"
+            onClick={handleClick}
+            className={className}
+            aria-disabled={instance.loading}
+        >
+            {instance.loading ? "Menyediakan PDF..." : children}
+        </a>
+    );
 }
 
 // No longer rendered as a DOM component — kept as no-op so Story.tsx import is harmless

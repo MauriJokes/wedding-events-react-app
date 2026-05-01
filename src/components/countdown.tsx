@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
-const targetDate = new Date("2026-12-27T11:00:00");
+const targetDate = new Date("2026-12-27T14:00:00+08:00");
 
 type Time = {
     days: number;

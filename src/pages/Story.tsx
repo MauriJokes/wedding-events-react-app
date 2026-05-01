@@ -23,25 +23,16 @@ const eventKhatam: EventDetailProps = {
     themeLabel: "White / Putih",
     dresscode: { lelaki: "Kurta", perempuan: "Jubah atau Abaya" },
     aturcara: [
-        { time: "9:00 PG", item: "Ketibaan Tetamu dan Jemputan" },
-        { time: "9:30 PG", item: "Perarakan Masuk Pembaca Khatam" },
-        {
-            time: "10:00 PG",
-            item: "Majlis Khatam Al-Quran Dimulakan",
-            subitems: [
-                "Bacaan Surah Al-Fatihah dikepalai oleh Awangku Mohamad Izzan Naqiuddin",
-                "Bacaan Surah-Surah, Tahktim & Doa Khatam",
-            ],
-        },
-        { time: "11:00 PG", item: "Alunan Dikir Marhaban" },
-        { time: "11:30 PG", item: "Upacara Merenjis Bunga Rampai" },
-        { time: "12:00 TGH", item: "Menikmati Jamuan" },
-        {
-            time: "2:30 PTG",
-            item: "Majlis Berbedak Siang Dimulakan",
-            subitems: ["Upacara Menculiki (Merenjis) Bedak"],
-        },
-        { time: "3:30 PTG", item: "Bacaan Doa Selamat" },
+        { time: "2:15 PTG", item: "Menerima Jemputan" },
+        { time: "2:30 PTG", item: "Perarakan Masuk Pembaca Khatam" },
+        { time: "", item: "Bacaan Surah Al-Fatihah" },
+        { time: "", item: "Bacaan Surah-Surah, Tahktim & Doa Khatam" },
+        { time: "", item: "Dikir Marhaban" },
+        { time: "", item: "Menikmati Jamuan" },
+        { time: "", item: "Upacara Merenjis Bunga Rampai" },
+        { time: "", item: "Menikmati Jamuan" },
+        { time: "", item: "Majlis Berbedak Siang Dimulakan" },
+        { time: "", item: "Bacaan Doa Selamat" },
     ],
     location: "https://maps.app.goo.gl/hqtoseX2VETaqKqV7?g_st=ic",
 };
@@ -58,30 +49,22 @@ const eventBerbedak: EventDetailProps = {
     ],
     themeColor: "#DEA193",
     themeLabel: "Rose Gold / Merah Jambu",
+    description:
+        "Dikenali juga sebagai 'Malam Masuk Berbedak', majlis ini diadakan di rumah bakal pengantin perempuan, diikuti di rumah bakal pengantin lelaki. Upacara berbedak merupakan tradisi memercikkan bedak wangi ke wajah bakal pengantin — sebagai persediaan dan tanda keindahan menjelang hari pernikahan.",
     dresscode: {
         lelaki: "Baju Melayu",
         perempuan: "Baju Kurung atau Gaun Formal",
     },
     aturcara: [
-        { time: "8:00 MLM", item: "Ketibaan Tetamu dan Jemputan" },
-        { time: "8:30 MLM", item: "Majlis Dikir Dimulakan" },
+        { time: "7:30 MLM", item: "Menerima Jemputan" },
+        { time: "7:45 MLM", item: "Majlis Dikir Dimulakan" },
         {
-            time: "9:00 MLM",
-            item: "Perarakan Masuk Pengantin Perempuan ke Pelamin",
+            time: "",
+            item: "Perarakan Masuk Pengantin Lelaki & Perempuan ke Pelamin",
         },
-        {
-            time: "9:15 MLM",
-            item: "Perarakan Masuk Pengantin Lelaki ke Pelamin",
-        },
-        {
-            time: "9:30 MLM",
-            item: "Majlis Berbedak & Berinai Dimulakan",
-            subitems: [
-                "Upacara Menculiki (Merenjis) Bedak 7 Warna & Menitiki Pacar (Inai)",
-            ],
-        },
-        { time: "10:30 MLM", item: "Bacaan Doa Selamat" },
-        { time: "11:00 MLM", item: "Menikmati Jamuan" },
+        { time: "", item: "Majlis Berbedak & Berinai Dimulakan" },
+        { time: "", item: "Bacaan Doa Selamat" },
+        { time: "", item: "Menikmati Jamuan" },
     ],
     location: "https://maps.app.goo.gl/hqtoseX2VETaqKqV7?g_st=ic",
 };
@@ -98,37 +81,39 @@ const eventAkad: EventDetailProps = {
     ],
     themeColor: "#7B4A2D",
     themeLabel: "Rich Brown / Coklat Gelap",
+    description:
+        "Majlis ini bermula dengan penyerahan hantaran — hadiah-hadiah yang dihiasi indah di atas dulang atau gangsa, sebagai memenuhi permintaan semasa pertunangan. Diikuti dengan Majlis Akad Nikah, iaitu detik paling bermakna — lafaz ijab dan kabul yang mengesahkan ikatan suci perkahwinan di hadapan jurunikah dan saksi-saksi.",
     dresscode: {
         lelaki: "Baju Melayu",
         perempuan: "Baju Kurung atau Gaun Formal",
     },
     aturcara: [
-        { time: "9:30 PG", item: "Ketibaan Tetamu dan Jemputan" },
+        { time: "2:00 PTG", item: "Menerima Jemputan" },
         {
-            time: "10:00 PG",
+            time: "2:00 PTG",
+            item: "Rombongan Pengantin Lelaki Dijangka Tiba",
+        },
+        {
+            time: "",
+            item: "Majlis Menerima Berian & Mas Kahwin",
+        },
+        {
+            time: "",
+            item: "Pertukaran Dulang Hantaran & Balasan",
+        },
+        {
+            time: "",
             item: "Jurunikah dan Saksi-Saksi Mengambil Tempat",
         },
+        { time: "", item: "Perarakan Masuk Pengantin Lelaki & Perempuan" },
+        { time: "", item: "Majlis Akad Nikah Dimulakan" },
         {
-            time: "10:30 PG",
-            item: "Ketibaan Rombongan Keluarga Pengantin Lelaki",
+            time: "",
+            item: "Upacara Penyerahan Mas Kahwin & Menyarungkan Cincin",
         },
-        {
-            time: "11:00 PG",
-            item: "Majlis Menerima Berian & Mas Kahwin Dimulakan",
-            subitems: ["Pertukaran Dulang Hantaran & Balasan"],
-        },
-        {
-            time: "11:30 PG",
-            item: "Perarakan Masuk Pengantin Lelaki & Perempuan",
-        },
-        {
-            time: "12:00 TGH",
-            item: "Majlis Akad Nikah Dimulakan",
-            subitems: ["Upacara Penyerahan Mas Kahwin & Menyarungkan Cincin"],
-        },
-        { time: "12:30 TGH", item: "Bacaan Doa Selamat" },
-        { time: "1:00 PTG", item: "Sesi Bergambar" },
-        { time: "1:30 PTG", item: "Menikmati Jamuan" },
+        { time: "", item: "Bacaan Doa Selamat" },
+        { time: "", item: "Sesi Bergambar" },
+        { time: "", item: "Menikmati Jamuan" },
     ],
     location: "https://maps.app.goo.gl/uxXXArTPfgnjCdbH9",
 };
@@ -144,24 +129,26 @@ const eventBersanding: EventDetailProps = {
         "Brunei Darussalam",
     ],
     themeColor: "#1A2744",
-    themeLabel: "Dark Navy / Biru Gelap",
+    themeLabel: "Navy Blue / Biru Gelap",
+    description:
+        "Kemuncak perayaan perkahwinan — pengantin bersanding di atas pelamin sebagai tanda rasmi ikatan mereka. Upacara dimulakan dengan perarakan 'pusing naga' sebanyak tiga pusingan, diiringi selawat dan hadrah. Majlis ini memperlihatkan pasangan kepada sanak-saudara dan tetamu sebagai suami isteri yang sah.",
     dresscode: {
         lelaki: "Baju Melayu",
         perempuan: "Baju Kurung atau Gaun Formal",
     },
     aturcara: [
-        { time: "7:00 MLM", item: "Ketibaan Tetamu dan Jemputan" },
-        { time: "8:00 MLM", item: "Perarakan Masuk Diraja Sehari" },
-        { time: "8:30 MLM", item: "Iringan Persembahan Tausyeh" },
+        { time: "7:00 MLM - 8:00 MLM", item: "Menerima Jemputan" },
+        { time: "", item: "Perarakan Masuk Diraja Sehari" },
+        { time: "", item: "Iringan Persembahan Tausyeh" },
         {
-            time: "9:00 MLM",
-            item: "Majlis Bersanding Dimulakan",
-            subitems: ["Ucapan Alu-aluan daripada Wakil Keluarga"],
+            time: "",
+            item: "Majlis Bersanding",
         },
-        { time: "9:45 MLM", item: "Acara Memotong Kek" },
-        { time: "10:00 MLM", item: "Bacaan Doa Selamat" },
-        { time: "10:30 MLM", item: "Menikmati Jamuan" },
-        { time: "11:00 MLM", item: "Sesi bergambar & Rakaman Ucapan Kenangan" },
+        { time: "", item: "Ucapan Alu-aluan daripada Wakil Keluarga" },
+        { time: "", item: "Acara Memotong Kek" },
+        { time: "", item: "Bacaan Doa Selamat" },
+        { time: "", item: "Menikmati Jamuan" },
+        { time: "", item: "Sesi bergambar & Rakaman Ucapan Kenangan" },
     ],
     location: "https://maps.app.goo.gl/Nfbe8NC5Kz59Ft1NA",
 };
@@ -220,7 +207,7 @@ export default function Story({ onEnter }: { onEnter?: () => void }) {
 
             {/* Footer */}
             <div className="pt-4 pb-18 text-center text-[12px] leading-relaxed tracking-wide text-[#C4A882] lg:pb-10">
-                Direka oleh Nik Adam
+                Direka oleh Nik Adam Danish
             </div>
         </div>
     );
