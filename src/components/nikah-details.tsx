@@ -281,7 +281,7 @@ export default function NikahDetails({
                     <img
                         src="/bismillah.png"
                         alt="Bismillah"
-                        className="mx-auto -mt-20 -mb-10 h-40 w-50 object-contain md:-mt-24 md:-mb-12 md:h-56 md:w-70 lg:-mt-32 lg:-mb-20 lg:h-70 lg:w-80"
+                        className="mx-auto -mt-20 -mb-12 h-40 w-40 object-contain md:-mt-24 md:-mb-12 md:h-56 md:w-56 lg:-mt-32 lg:-mb-20 lg:h-70 lg:w-70"
                     />
                 </motion.div>
 
