@@ -73,8 +73,8 @@ const S = StyleSheet.create({
     page: {
         backgroundColor: "#FDFAF5",
         paddingHorizontal: 57,
-        paddingTop: 48,
-        paddingBottom: 48,
+        paddingTop: 24,
+        paddingBottom: 24,
         fontFamily: "Helvetica",
     },
     header: { alignItems: "center", marginBottom: 12 },
@@ -142,14 +142,10 @@ const S = StyleSheet.create({
     },
     themeText: { fontSize: 8, color: "#3D2E1E" },
     footer: {
-        // marginTop: 14,
-        // borderTopWidth: 0.5,
-        // borderTopColor: "#D4C4AE",
-        // paddingTop: 10,
         alignItems: "center",
     },
     footerText: { fontSize: 9, fontFamily: "Times-Roman", color: "#9B8470" },
-    logo: { width: 70, height: 70, marginBottom: 24 },
+    logo: { width: 100, height: 100, marginBottom: 24, color: "#C4A882" },
 });
 
 // ─── Sub-components ───────────────────────────────────────────────────────────
@@ -269,7 +265,7 @@ export function InvitationPDFLink({
     children: React.ReactNode;
     className?: string;
 }) {
-    const logoSrc = window.location.origin + "/logo.png";
+    const logoSrc = window.location.origin + "/logoPDF.png";
     const [instance, updateInstance] = usePDF({
         document: <InvitationPDFDocument logoSrc={logoSrc} />,
     });

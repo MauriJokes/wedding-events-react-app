@@ -22,8 +22,8 @@ const eventKhatam: EventDetailProps = {
     themeColor: "#F5F5F0",
     themeLabel: "White / Putih",
     description: [
-        "Majlis Khatam Al-Quran adalah satu pencapaian spiritual yang signifikan bagi bakal mempelai sebelum memulakan kehidupan berkeluarga. Majlis ini melambangkan kesediaan pengantin melangkah ke alam perkahwinan dengan pegangan agama yang teguh serta memohon keberkatan Ilahi.",
-        "Majlis Bebadak Siang adalah pacara pembukaan rasmi bagi minggu perkahwinan. Ahli keluarga terdekat akan menyapu lulur atau bedak tradisional (lulut) kepada pengantin bertujuan untuk pembersihan diri serta menaikkan 'seri' wajah sebelum hari bahagia.",
+        "Majlis Khatam Al-Quran adalah satu pencapaian dan persiapan rohani yang signifikan bagi bakal mempelai sebelum melaksanakan tanggungjawab sebagain suami dan isteri. Majlis ini melambangkan kesediaan pengantin melangkah ke alam perkahwinan dengan pegangan agama yang teguh serta memohon keberkatan Ilahi.",
+        "Majlis Bebadak Siang adalah upacara pembukaan rasmi bagi minggu perkahwinan. Ahli keluarga terdekat akan menyapu bedak tradisional (lulut) kepada pengantin bertujuan untuk pembersihan diri serta menaikkan 'seri' wajah sebelum hari bahagia.",
     ],
     dresscode: { lelaki: "Kurta", perempuan: "Jubah atau Abaya" },
     aturcara: [
@@ -54,8 +54,8 @@ const eventBerbedak: EventDetailProps = {
     themeColor: "#DEA193",
     themeLabel: "Rose Gold / Merah Jambu",
     description: [
-        "Majlis Malam Berbedak adalah salah satu acara yang paling unik di Brunei. Para jemputan akan dipanggil untuk 'menculiki' atau mencalitkan bedak tradisional berwarna-warni ke tapak tangan pengantin sebagai simbol pemberian restu dan doa.",
-        "Majlis Dikir diadakan serentak dengan upacara berbedak, di mana alunan zikir dan selawat ke atas Nabi Muhammad S.A.W dilaungkan. Ia bertujuan untuk mewujudkan suasana penuh kerohanian dan memohon perlindungan buat pasangan.",
+        "Majlis Malam Berbedak adalah salah satu acara yang paling unik di Brunei. Para jemputan akan dipanggil untuk 'menculiki' atau mencalitkan bedak tradisional berwarna-warni (7 warna) ke tapak tangan pengantin sebagai simbol pemberian restu dan doa.",
+        "Majlis Dikir diadakan sebelum upacara berbedak, di mana alunan zikir dan selawat ke atas Nabi Muhammad S.A.W dilaungkan. Ia bertujuan untuk mewujudkan suasana penuh kerohanian dan memohon perlindungan buat pasangan.",
         "Majlis Berinai sering diadakan selepas upacara berbedak, inai atau pacar akan dipakaikan pada jari-jemari pengantin sebagai pelengkap hiasan tradisi. Ia melambangkan status pengantin yang sedang meraikan hari kebesaran mereka.",
     ],
     dresscode: {
@@ -90,7 +90,7 @@ const eventAkad: EventDetailProps = {
     themeLabel: "Rich Brown / Coklat Gelap",
     description: [
         "Majlis Menerima Berian adalah upacara penghantaran dan penerimaan dulang hantaran serta mas kahwin yang telah dipersetujui. Ia menandakan ikatan perjanjian dan tanda penghargaan di antara pihak lelaki dan pihak perempuan.",
-        "Majlis Akad Nikah adalah acara kemuncak yang paling sakral di mana ikatan perkahwinan disahkan melalui Ijab dan Qabul. Di sinilah pasangan secara rasminya menjadi suami dan isteri yang sah di sisi agama dan undang-undang.",
+        "Majlis Akad Nikah adalah acara kemuncak yang paling mulia di mana ikatan perkahwinan disahkan melalui Ijab dan Qabul. Di sinilah pasangan secara rasminya menjadi suami dan isteri yang sah di sisi agama dan undang-undang.",
     ],
     dresscode: {
         lelaki: "Baju Melayu",
@@ -148,7 +148,7 @@ const eventBersanding: EventDetailProps = {
     },
     aturcara: [
         { time: "7:15 MLM", item: "Menerima Jemputan" },
-        { time: "8:00 MLM", item: "Perarakan Masuk Diraja Sehari" },
+        { time: "8:15 MLM", item: "Perarakan Masuk Diraja Sehari" },
         { time: "", item: "Iringan Persembahan Tausyeh" },
         {
             time: "",
