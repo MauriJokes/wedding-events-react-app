@@ -137,7 +137,7 @@ const eventBersanding: EventDetailProps = {
         perempuan: "Baju Kurung atau Gaun Formal",
     },
     aturcara: [
-        { time: "7:00 MLM", item: "Menerima Jemputan" },
+        { time: "7:15 MLM", item: "Menerima Jemputan" },
         { time: "8:00 MLM", item: "Perarakan Masuk Diraja Sehari" },
         { time: "", item: "Iringan Persembahan Tausyeh" },
         {

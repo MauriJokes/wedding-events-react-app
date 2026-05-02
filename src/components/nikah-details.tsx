@@ -53,7 +53,7 @@ function downloadAllEventsIcs() {
             month: 12,
             day: 28,
             startHour: 19,
-            startMinute: 0,
+            startMinute: 15,
             endHour: 23,
             endMinute: 0,
             location: "Tarindak D'Polo",
@@ -281,7 +281,7 @@ export default function NikahDetails({
                     <img
                         src="/bismillah.png"
                         alt="Bismillah"
-                        className="-mt-45 -mb-40 h-100 object-contain"
+                        className="mx-auto -mt-20 -mb-10 h-40 w-50 object-contain md:-mt-24 md:-mb-12 md:h-56 md:w-70 lg:-mt-32 lg:-mb-20 lg:h-70 lg:w-80"
                     />
                 </motion.div>
 
@@ -393,7 +393,7 @@ export default function NikahDetails({
                         revealed ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }
                     }
                     transition={{ delay: 0.7, duration: 0.7 }}
-                    className="mt-8 flex flex-col gap-3 sm:flex-row"
+                    className="flex flex-col gap-3 sm:flex-row"
                 >
                     <InvitationPDFLink className="flex-1 border border-[#C4A882]/50 px-4 py-3 text-center text-[10px] leading-snug tracking-[0.18em] text-[#C4A882] uppercase transition-colors hover:border-[#C4A882] hover:text-[#F0E6D8] active:opacity-80">
                         Muat Turun Ringkasan
