@@ -21,6 +21,10 @@ const eventKhatam: EventDetailProps = {
     ],
     themeColor: "#F5F5F0",
     themeLabel: "White / Putih",
+    description: [
+        "Majlis Khatam Al-Quran adalah satu pencapaian spiritual yang signifikan bagi bakal mempelai sebelum memulakan kehidupan berkeluarga. Majlis ini melambangkan kesediaan pengantin melangkah ke alam perkahwinan dengan pegangan agama yang teguh serta memohon keberkatan Ilahi.",
+        "Majlis Bebadak Siang adalah pacara pembukaan rasmi bagi minggu perkahwinan. Ahli keluarga terdekat akan menyapu lulur atau bedak tradisional (lulut) kepada pengantin bertujuan untuk pembersihan diri serta menaikkan 'seri' wajah sebelum hari bahagia.",
+    ],
     dresscode: { lelaki: "Kurta", perempuan: "Jubah atau Abaya" },
     aturcara: [
         { time: "2:15 PTG", item: "Menerima Jemputan" },
@@ -49,8 +53,11 @@ const eventBerbedak: EventDetailProps = {
     ],
     themeColor: "#DEA193",
     themeLabel: "Rose Gold / Merah Jambu",
-    description:
-        "Dikenali juga sebagai 'Malam Masuk Berbedak', majlis ini diadakan di rumah bakal pengantin perempuan, diikuti di rumah bakal pengantin lelaki. Upacara berbedak merupakan tradisi memercikkan bedak wangi ke wajah bakal pengantin — sebagai persediaan dan tanda keindahan menjelang hari pernikahan.",
+    description: [
+        "Majlis Malam Berbedak adalah salah satu acara yang paling unik di Brunei. Para jemputan akan dipanggil untuk 'menculiki' atau mencalitkan bedak tradisional berwarna-warni ke tapak tangan pengantin sebagai simbol pemberian restu dan doa.",
+        "Majlis Dikir diadakan serentak dengan upacara berbedak, di mana alunan zikir dan selawat ke atas Nabi Muhammad S.A.W dilaungkan. Ia bertujuan untuk mewujudkan suasana penuh kerohanian dan memohon perlindungan buat pasangan.",
+        "Majlis Berinai sering diadakan selepas upacara berbedak, inai atau pacar akan dipakaikan pada jari-jemari pengantin sebagai pelengkap hiasan tradisi. Ia melambangkan status pengantin yang sedang meraikan hari kebesaran mereka.",
+    ],
     dresscode: {
         lelaki: "Baju Melayu",
         perempuan: "Baju Kurung atau Gaun Formal",
@@ -81,8 +88,10 @@ const eventAkad: EventDetailProps = {
     ],
     themeColor: "#7B4A2D",
     themeLabel: "Rich Brown / Coklat Gelap",
-    description:
-        "Majlis ini bermula dengan penyerahan hantaran — hadiah-hadiah yang dihiasi indah di atas dulang atau gangsa, sebagai memenuhi permintaan semasa pertunangan. Diikuti dengan Majlis Akad Nikah, iaitu detik paling bermakna — lafaz ijab dan kabul yang mengesahkan ikatan suci perkahwinan di hadapan jurunikah dan saksi-saksi.",
+    description: [
+        "Majlis Menerima Berian adalah upacara penghantaran dan penerimaan dulang hantaran serta mas kahwin yang telah dipersetujui. Ia menandakan ikatan perjanjian dan tanda penghargaan di antara pihak lelaki dan pihak perempuan.",
+        "Majlis Akad Nikah adalah acara kemuncak yang paling sakral di mana ikatan perkahwinan disahkan melalui Ijab dan Qabul. Di sinilah pasangan secara rasminya menjadi suami dan isteri yang sah di sisi agama dan undang-undang.",
+    ],
     dresscode: {
         lelaki: "Baju Melayu",
         perempuan: "Baju Kurung atau Gaun Formal",
@@ -130,8 +139,9 @@ const eventBersanding: EventDetailProps = {
     ],
     themeColor: "#1A2744",
     themeLabel: "Navy Blue / Biru Gelap",
-    description:
-        "Kemuncak perayaan perkahwinan — pengantin bersanding di atas pelamin sebagai tanda rasmi ikatan mereka. Upacara dimulakan dengan perarakan 'pusing naga' sebanyak tiga pusingan, diiringi selawat dan hadrah. Majlis ini memperlihatkan pasangan kepada sanak-saudara dan tetamu sebagai suami isteri yang sah.",
+    description: [
+        "Majlis Bersanding adalah hari di mana pasangan mempelai diraikan sebagai 'Raja Sehari' di atas pelamin yang indah. Majlis ini bertujuan untuk mengumumkan dan meraikan penyatuan pasangan kepada semua saudara-mara, rakan-rakan, dan masyarakat umum.",
+    ],
     dresscode: {
         lelaki: "Baju Melayu",
         perempuan: "Baju Kurung atau Gaun Formal",

@@ -65,7 +65,7 @@ export interface EventDetailProps {
     dresscode: { lelaki: string; perempuan: string };
     location: string;
     /** Optional short description shown in an expandable panel */
-    description?: string;
+    description?: string[];
     index?: number;
 }
 
@@ -222,56 +222,57 @@ export default function EventDetail({
                 </motion.div>
 
                 {/* ── Tentang Majlis (expandable description) ── */}
-                {description && (
-                    <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                        className="mb-8 text-center"
+                <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="mb-8 text-center"
+                >
+                    <button
+                        onClick={() => setDescOpen((v) => !v)}
+                        className="group inline-flex items-center gap-2 border border-[#D4C4AE] px-5 py-2 text-[9px] tracking-[0.3em] text-[#6B5544]/60 uppercase transition-colors hover:border-[#6B5544] hover:text-[#6B5544] active:scale-[0.97]"
+                        aria-expanded={descOpen}
                     >
-                        <button
-                            onClick={() => setDescOpen((v) => !v)}
-                            className="group inline-flex items-center gap-2 border border-[#D4C4AE] px-5 py-2 text-[9px] tracking-[0.3em] text-[#6B5544]/60 uppercase transition-colors hover:border-[#6B5544] hover:text-[#6B5544] active:scale-[0.97]"
-                            aria-expanded={descOpen}
+                        <span>Tentang Majlis Ini</span>
+                        <motion.svg
+                            width="9"
+                            height="9"
+                            viewBox="0 0 9 9"
+                            fill="none"
+                            animate={{ rotate: descOpen ? 180 : 0 }}
+                            transition={{
+                                duration: 0.35,
+                                ease: "easeInOut",
+                            }}
+                            className="flex-shrink-0 opacity-60 group-hover:opacity-100"
                         >
-                            <span>Tentang Majlis Ini</span>
-                            <motion.svg
-                                width="9"
-                                height="9"
-                                viewBox="0 0 9 9"
-                                fill="none"
-                                animate={{ rotate: descOpen ? 180 : 0 }}
-                                transition={{
-                                    duration: 0.35,
-                                    ease: "easeInOut",
-                                }}
-                                className="flex-shrink-0 opacity-60 group-hover:opacity-100"
-                            >
-                                <path
-                                    d="M1 2.5L4.5 6L8 2.5"
-                                    stroke="currentColor"
-                                    strokeWidth="1"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                />
-                            </motion.svg>
-                        </button>
+                            <path
+                                d="M1 2.5L4.5 6L8 2.5"
+                                stroke="currentColor"
+                                strokeWidth="1"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                            />
+                        </motion.svg>
+                    </button>
 
-                        <AnimatePresence initial={false}>
-                            {descOpen && (
-                                <motion.div
-                                    key="desc"
-                                    initial={{ opacity: 0, height: 0 }}
-                                    animate={{ opacity: 1, height: "auto" }}
-                                    exit={{ opacity: 0, height: 0 }}
-                                    transition={{
-                                        duration: 0.45,
-                                        ease: [0.4, 0, 0.2, 1],
-                                    }}
-                                    style={{ overflow: "hidden" }}
-                                >
+                    <AnimatePresence initial={false}>
+                        {descOpen && (
+                            <motion.div
+                                key="desc"
+                                initial={{ opacity: 0, height: 0 }}
+                                animate={{ opacity: 1, height: "auto" }}
+                                exit={{ opacity: 0, height: 0 }}
+                                transition={{
+                                    duration: 0.45,
+                                    ease: [0.4, 0, 0.2, 1],
+                                }}
+                                style={{ overflow: "hidden" }}
+                            >
+                                {description.map((para, i) => (
                                     <motion.p
+                                        key={i}
                                         initial={{ opacity: 0, y: 6 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         exit={{ opacity: 0, y: 4 }}
@@ -281,13 +282,13 @@ export default function EventDetail({
                                         }}
                                         className="mx-auto mt-5 max-w-xs text-[12px] leading-[1.85] font-light tracking-wide text-[#6B5544]"
                                     >
-                                        {description}
+                                        {para}
                                     </motion.p>
-                                </motion.div>
-                            )}
-                        </AnimatePresence>
-                    </motion.div>
-                )}
+                                ))}
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
+                </motion.div>
 
                 <ThinDivider />
 
