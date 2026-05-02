@@ -22,7 +22,7 @@ const eventKhatam: EventDetailProps = {
     themeColor: "#F5F5F0",
     themeLabel: "White / Putih",
     description: [
-        "Majlis Khatam Al-Quran adalah satu pencapaian dan persiapan rohani yang signifikan bagi bakal mempelai sebelum melaksanakan tanggungjawab sebagain suami dan isteri. Majlis ini melambangkan kesediaan pengantin melangkah ke alam perkahwinan dengan pegangan agama yang teguh serta memohon keberkatan Ilahi.",
+        "Majlis Khatam Al-Quran adalah satu pencapaian dan persiapan rohani yang signifikan bagi bakal mempelai sebelum melaksanakan tanggungjawab sebagai suami dan isteri. Majlis ini melambangkan kesediaan pengantin melangkah ke alam perkahwinan dengan pegangan agama yang teguh serta memohon keberkatan Ilahi.",
         "Majlis Bebadak Siang adalah upacara pembukaan rasmi bagi minggu perkahwinan. Ahli keluarga terdekat akan menyapu bedak tradisional (lulut) kepada pengantin bertujuan untuk pembersihan diri serta menaikkan 'seri' wajah sebelum hari bahagia.",
     ],
     dresscode: { lelaki: "Kurta", perempuan: "Jubah atau Abaya" },
