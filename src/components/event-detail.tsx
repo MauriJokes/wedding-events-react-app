@@ -270,7 +270,7 @@ export default function EventDetail({
                                 }}
                                 style={{ overflow: "hidden" }}
                             >
-                                {description.map((para, i) => (
+                                {description?.map((para, i) => (
                                     <motion.p
                                         key={i}
                                         initial={{ opacity: 0, y: 6 }}
