@@ -20,7 +20,7 @@ interface PDFEventData {
     day: string;
     date: string;
     venue: string[];
-    themeColor: string;
+    themeColor?: string;
     themeLabel: string;
 }
 
@@ -28,10 +28,46 @@ interface PDFEventData {
 
 const events: PDFEventData[] = [
     {
+        title: "Pembukaan Malam Jaga-Jaga",
+        day: "Hari Sabtu",
+        date: "19 Disember 2026M / 9 Rejab 1448H",
+        venue: [
+            "MJ Villa, No. 10, Simpang 52-52",
+            "Kg. Mata-Mata, Gadong BE1718",
+        ],
+        //themeColor: "#F0EFE9",
+        themeLabel: "Bebas",
+    },
+    {
+        title: "Malam Jaga-Jaga",
+        day: "Hari Selasa",
+        date: "22 Disember 2026M / 12 Rejab 1448H",
+        venue: [
+            "MJ Villa, No. 10, Simpang 52-52",
+            "Kg. Mata-Mata, Gadong BE1718",
+        ],
+        //themeColor: "#F0EFE9",
+        themeLabel: "Bebas",
+    },
+    {
+        title: "Malam Jaga-Jaga",
+        day: "Hari Khamis",
+        date: "24 Disember 2026M / 14 Rejab 1448H",
+        venue: [
+            "MJ Villa, No. 10, Simpang 52-52",
+            "Kg. Mata-Mata, Gadong BE1718",
+        ],
+        //themeColor: "#F0EFE9",
+        themeLabel: "Bebas",
+    },
+    {
         title: "Majlis Khatam Al-Quran & Majlis Berbedak Siang",
         day: "Hari Jumaat",
         date: "25 Disember 2026M / 15 Rejab 1448H",
-        venue: ["No. 10, Simpang 52-52", "Kg. Mata-Mata, Gadong BE1718"],
+        venue: [
+            "MJ Villa, No. 10, Simpang 52-52",
+            "Kg. Mata-Mata, Gadong BE1718",
+        ],
         themeColor: "#F0EFE9",
         themeLabel: "White / Putih",
     },
@@ -39,7 +75,10 @@ const events: PDFEventData[] = [
         title: "Majlis Malam Berbedak & Majlis Berinai",
         day: "Hari Sabtu",
         date: "26 Disember 2026M / 16 Rejab 1448H",
-        venue: ["No. 10, Simpang 52-52", "Kg. Mata-Mata, Gadong BE1718"],
+        venue: [
+            "MJ Villa, No. 10, Simpang 52-52",
+            "Kg. Mata-Mata, Gadong BE1718",
+        ],
         themeColor: "#DEA193",
         themeLabel: "Rose Gold / Merah Jambu",
     },
@@ -72,46 +111,46 @@ const events: PDFEventData[] = [
 const S = StyleSheet.create({
     page: {
         backgroundColor: "#FDFAF5",
-        paddingHorizontal: 57,
-        paddingTop: 24,
-        paddingBottom: 24,
+        paddingHorizontal: 40,
+        paddingTop: 20,
+        paddingBottom: 20,
         fontFamily: "Helvetica",
     },
-    header: { alignItems: "center", marginBottom: 12 },
+    header: { alignItems: "center", marginBottom: 10 },
     mainTitle: {
-        fontSize: 26,
+        fontSize: 20,
         fontFamily: "Times-Roman",
         color: "#3D2E1E",
         letterSpacing: 1,
-        marginBottom: 5,
+        marginBottom: 3,
     },
     subNames: {
-        fontSize: 8,
+        fontSize: 7.5,
         color: "#9B8470",
         letterSpacing: 1.2,
         textTransform: "uppercase",
-        marginBottom: 3,
+        marginBottom: 2,
     },
-    dateRange: { fontSize: 8, color: "#9B8470" },
+    dateRange: { fontSize: 7.5, color: "#9B8470" },
     sectionLabel: {
         fontSize: 7,
         letterSpacing: 2.5,
         color: "#C4A882",
         textTransform: "uppercase",
         textAlign: "center",
-        marginBottom: 14,
+        marginBottom: 8,
     },
-    eventBlock: { marginBottom: 18 },
-    eventHeader: { alignItems: "center", marginBottom: 7 },
+    eventBlock: {},
+    eventHeader: { alignItems: "center", marginBottom: 5 },
     eventNumber: {
         fontSize: 7,
         letterSpacing: 2,
         color: "#9B8470",
         textTransform: "uppercase",
-        marginBottom: 3,
+        marginBottom: 2,
     },
     eventTitle: {
-        fontSize: 12,
+        fontSize: 10,
         fontFamily: "Times-Roman",
         color: "#3D2E1E",
         textAlign: "center",
@@ -119,36 +158,58 @@ const S = StyleSheet.create({
         textTransform: "uppercase",
         marginBottom: 2,
     },
-    eventDate: { fontSize: 8, color: "#9B8470" },
-    venueThemeRow: { flexDirection: "row", marginVertical: 6 },
+    eventDate: { fontSize: 7.5, color: "#9B8470" },
+    venueThemeRow: { flexDirection: "row", marginVertical: 5 },
     venueCol: { flex: 1, paddingRight: 10 },
     themeCol: { alignItems: "flex-end" },
     colLabel: {
-        fontSize: 7,
+        fontSize: 6.5,
         letterSpacing: 1.5,
         color: "#C4A882",
         textTransform: "uppercase",
         marginBottom: 3,
     },
-    venueText: { fontSize: 8, color: "#3D2E1E", lineHeight: 1.5 },
+    venueText: { fontSize: 7.5, color: "#3D2E1E", lineHeight: 1.3 },
     themeSwatchRow: { flexDirection: "row", alignItems: "center" },
     themeSwatch: {
-        width: 10,
-        height: 10,
-        borderRadius: 5,
+        width: 8,
+        height: 8,
+        borderRadius: 4,
         borderWidth: 0.5,
         borderColor: "#D4C4AE",
-        marginRight: 5,
+        marginRight: 4,
     },
-    themeText: { fontSize: 8, color: "#3D2E1E" },
+    themeText: { fontSize: 7.5, color: "#3D2E1E" },
     footer: {
         alignItems: "center",
+        marginTop: 12,
     },
-    footerText: { fontSize: 9, fontFamily: "Times-Roman", color: "#9B8470" },
-    logo: { width: 100, height: 100, marginBottom: 24, color: "#C4A882" },
+    footerText: { fontSize: 8, fontFamily: "Times-Roman", color: "#9B8470" },
+    logo: { width: 50, height: 50, marginBottom: 6, color: "#C4A882" },
 });
 
 // ─── Sub-components ───────────────────────────────────────────────────────────
+
+function RainbowSwatch({ src }: { src: string }) {
+    return (
+        <View
+            style={{
+                width: 8,
+                height: 8,
+                borderRadius: 4,
+                borderWidth: 0.5,
+                borderColor: "#D4C4AE",
+                marginRight: 4,
+                overflow: "hidden",
+            }}
+        >
+            <Image
+                src={src}
+                style={{ width: 7, height: 7, objectFit: "cover" }}
+            />
+        </View>
+    );
+}
 
 function GoldRule() {
     return (
@@ -156,7 +217,7 @@ function GoldRule() {
             style={{
                 height: 0.5,
                 backgroundColor: "#C4A882",
-                marginVertical: 7,
+                marginVertical: 4,
             }}
         />
     );
@@ -165,9 +226,11 @@ function GoldRule() {
 function PDFEventBlock({
     event,
     index,
+    colorPickerSrc,
 }: {
     event: PDFEventData;
     index: number;
+    colorPickerSrc: string;
 }) {
     return (
         <View style={S.eventBlock}>
@@ -193,12 +256,16 @@ function PDFEventBlock({
                 <View style={S.themeCol}>
                     <Text style={S.colLabel}>Tema Pakaian</Text>
                     <View style={S.themeSwatchRow}>
-                        <View
-                            style={[
-                                S.themeSwatch,
-                                { backgroundColor: event.themeColor },
-                            ]}
-                        />
+                        {event.themeColor ? (
+                            <View
+                                style={[
+                                    S.themeSwatch,
+                                    { backgroundColor: event.themeColor },
+                                ]}
+                            />
+                        ) : (
+                            <RainbowSwatch src={colorPickerSrc} />
+                        )}
                         <Text style={S.themeText}>{event.themeLabel}</Text>
                     </View>
                 </View>
@@ -209,7 +276,13 @@ function PDFEventBlock({
     );
 }
 
-export function InvitationPDFDocument({ logoSrc }: { logoSrc: string }) {
+export function InvitationPDFDocument({
+    logoSrc,
+    colorPickerSrc,
+}: {
+    logoSrc: string;
+    colorPickerSrc: string;
+}) {
     return (
         <Document
             title="Jemputan Nikah - Izyan & Adam"
@@ -230,15 +303,22 @@ export function InvitationPDFDocument({ logoSrc }: { logoSrc: string }) {
                     style={{
                         height: 0.5,
                         backgroundColor: "#C4A882",
-                        marginBottom: 12,
+                        marginBottom: 8,
                     }}
                 />
 
-                <Text style={S.sectionLabel}>Ringkasan Majlis-Majlis</Text>
+                {/* <Text style={S.sectionLabel}>Ringkasan Majlis-Majlis</Text> */}
 
-                {events.map((event, index) => (
-                    <PDFEventBlock key={index} event={event} index={index} />
-                ))}
+                <View style={{ flex: 1, justifyContent: "space-between" }}>
+                    {events.map((event, index) => (
+                        <PDFEventBlock
+                            key={index}
+                            event={event}
+                            index={index}
+                            colorPickerSrc={colorPickerSrc}
+                        />
+                    ))}
+                </View>
 
                 <View style={S.footer}>
                     <Text style={S.footerText}>
@@ -266,13 +346,24 @@ export function InvitationPDFLink({
     className?: string;
 }) {
     const logoSrc = window.location.origin + "/logoPDF.png";
+    const colorPickerSrc = window.location.origin + "/colorpicker.png";
     const [instance, updateInstance] = usePDF({
-        document: <InvitationPDFDocument logoSrc={logoSrc} />,
+        document: (
+            <InvitationPDFDocument
+                logoSrc={logoSrc}
+                colorPickerSrc={colorPickerSrc}
+            />
+        ),
     });
 
     // Ensure the PDF is generated as soon as the component mounts
     useEffect(() => {
-        updateInstance(<InvitationPDFDocument logoSrc={logoSrc} />);
+        updateInstance(
+            <InvitationPDFDocument
+                logoSrc={logoSrc}
+                colorPickerSrc={colorPickerSrc}
+            />,
+        );
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
