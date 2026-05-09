@@ -15,7 +15,7 @@ const eventKhatam: EventDetailProps = {
     day: "Hari Jumaat",
     date: "25 Disember 2026M / 15 Rejab 1448H",
     venue: [
-        "MJ Vila",
+        "MJ Villa",
         "No. 10, Simpang 52-52",
         "Kg. Mata-Mata, Gadong BE1718",
         "Brunei Darussalam",
@@ -48,7 +48,7 @@ const eventBerbedak: EventDetailProps = {
     day: "Hari Sabtu",
     date: "26 Disember 2026M / 16 Rejab 1448H",
     venue: [
-        "MJ Vila",
+        "MJ Villa",
         "No. 10, Simpang 52-52",
         "Kg. Mata-Mata, Gadong BE1718",
         "Brunei Darussalam",

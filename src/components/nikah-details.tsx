@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { InvitationPDFLink } from "./invitation-pdf";
 
 function formatIcsDate(
     year: number,
@@ -395,11 +394,15 @@ export default function NikahDetails({
                     transition={{ delay: 0.7, duration: 0.7 }}
                     className="flex flex-col gap-3 sm:flex-row"
                 >
-                    <InvitationPDFLink className="flex-1 border border-[#C4A882]/50 px-4 py-3 text-center text-[10px] leading-snug tracking-[0.18em] text-[#C4A882] uppercase transition-colors hover:border-[#C4A882] hover:text-[#F0E6D8] active:opacity-80">
+                    <a
+                        href="/Aturcara Majlis.pdf"
+                        download="Aturcara-Majlis-Perkahwinan.pdf"
+                        className="flex-1 border border-[#C4A882]/50 px-4 py-3 text-center text-[10px] leading-snug tracking-[0.18em] text-[#C4A882] uppercase transition-colors hover:border-[#C4A882] hover:text-[#F0E6D8] active:opacity-80"
+                    >
                         Muat Turun Ringkasan
                         <br />
                         Majlis-Majlis
-                    </InvitationPDFLink>
+                    </a>
                     <button
                         className="flex-1 border border-[#C4A882]/50 px-4 py-3 text-center text-[10px] leading-snug tracking-[0.18em] text-[#C4A882] uppercase transition-colors hover:border-[#C4A882] hover:text-[#F0E6D8] active:opacity-80"
                         onClick={downloadAllEventsIcs}
