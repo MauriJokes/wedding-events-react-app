@@ -194,32 +194,75 @@ export default function Story({ onEnter }: { onEnter?: () => void }) {
             {/* Invitation / Jemputan — dark background butts directly against hero */}
             <NikahDetails revealed={isRevealed} />
 
-            <SectionDivider />
+            {/* Side-flower bordered zone — spans countdown, events and footer */}
+            <div className="relative">
+                {/* Left side flowers — tiled vertically */}
+                <div
+                    className="pointer-events-none absolute top-0 bottom-0 left-0 z-0 w-36 overflow-hidden"
+                    style={{ opacity: 0.15 }}
+                    aria-hidden="true"
+                >
+                    <div
+                        style={{
+                            position: "absolute",
+                            top: "50%",
+                            left: "10%",
+                            width: "30000px",
+                            height: "200px",
+                            backgroundImage: "url('/side_flowers.png')",
+                            backgroundRepeat: "repeat-x",
+                            backgroundSize: "auto 200px",
+                            transform: "translate(-50%, -50%) rotate(90deg)",
+                        }}
+                    />
+                </div>
 
-            {/* Countdown — before the summary */}
-            <section id="countdown">
-                <Countdown />
-            </section>
+                {/* Right side flowers — tiled vertically */}
+                <div
+                    className="pointer-events-none absolute top-0 right-0 bottom-0 z-0 w-36 overflow-hidden"
+                    style={{ opacity: 0.15 }}
+                    aria-hidden="true"
+                >
+                    <div
+                        style={{
+                            position: "absolute",
+                            top: "50%",
+                            left: "90%",
+                            width: "30000px",
+                            height: "200px",
+                            backgroundImage: "url('/side_flowers.png')",
+                            backgroundRepeat: "repeat-x",
+                            backgroundSize: "auto 200px",
+                            transform: "translate(-50%, 50%) rotate(-90deg)",
+                        }}
+                    />
+                </div>
 
-            <SectionDivider flip={true} />
+                <SectionDivider />
 
-            {/* Event 1 — Khatam Al-Quran & Berbedak Siang */}
-            <EventDetail {...eventKhatam} index={0} />
+                {/* Countdown */}
+                <section id="countdown">
+                    <Countdown />
+                </section>
 
-            {/* Event 2 — Malam Berbedak & Berinai */}
-            <EventDetail {...eventBerbedak} index={1} />
+                <SectionDivider flip={true} />
 
-            {/* Event 3 — Menerima Berian & Akad Nikah */}
-            <EventDetail {...eventAkad} index={2} />
+                {/* Event 1 — Khatam Al-Quran & Berbedak Siang */}
+                <EventDetail {...eventKhatam} index={0} />
 
-            {/* Event 4 — Bersanding */}
-            <div className="lg:pb-8">
+                {/* Event 2 — Malam Berbedak & Berinai */}
+                <EventDetail {...eventBerbedak} index={1} />
+
+                {/* Event 3 — Menerima Berian & Akad Nikah */}
+                <EventDetail {...eventAkad} index={2} />
+
+                {/* Event 4 — Bersanding */}
                 <EventDetail {...eventBersanding} index={3} />
-            </div>
 
-            {/* Footer */}
-            <div className="pt-4 pb-18 text-center text-[12px] leading-relaxed tracking-wide text-[#C4A882] lg:pb-10">
-                Direka oleh Nik Adam Danish
+                {/* Footer */}
+                <div className="pt-4 pb-18 text-center text-[12px] leading-relaxed tracking-wide text-[#C4A882] md:text-sm lg:pb-10 lg:text-base">
+                    Direka oleh Nik Adam Danish
+                </div>
             </div>
         </div>
     );

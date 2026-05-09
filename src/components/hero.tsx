@@ -89,10 +89,8 @@ export default function Hero({
                 transition={{ duration: 1.3, ease: [0.4, 0, 0.15, 1] }}
             >
                 <div
-                    className="relative flex items-center justify-center rounded-full shadow-md"
+                    className="relative flex h-[168px] w-[168px] items-center justify-center rounded-full shadow-md md:h-[196px] md:w-[196px] lg:h-[220px] lg:w-[220px]"
                     style={{
-                        width: 168,
-                        height: 168,
                         backgroundColor: "#C4A882",
                     }}
                 >
@@ -100,7 +98,7 @@ export default function Hero({
                     <img
                         src="/logo.png"
                         alt="Izyan & Adam calligraphy seal"
-                        className="relative z-10 h-36 w-36 object-contain"
+                        className="relative z-10 h-36 w-36 object-contain md:h-44 md:w-44 lg:h-48 lg:w-48"
                         style={{ mixBlendMode: "multiply" }}
                     />
                 </div>
@@ -109,7 +107,7 @@ export default function Hero({
             {/* Hint text */}
             <motion.button
                 onClick={handleOpen}
-                className="absolute bottom-48 left-1/2 -translate-x-1/2 border border-[#6B5544]/60 px-5 py-2 text-[10px] tracking-[0.3em] whitespace-nowrap text-[#6B5544]/60 uppercase transition-colors hover:border-[#6B5544] hover:text-[#6B5544] active:scale-[0.97]"
+                className="absolute bottom-48 left-1/2 -translate-x-1/2 border border-[#6B5544]/60 px-5 py-2 text-[10px] tracking-[0.3em] whitespace-nowrap text-[#6B5544]/60 uppercase transition-colors hover:border-[#6B5544] hover:text-[#6B5544] active:scale-[0.97] md:px-7 md:py-3 md:text-xs lg:text-sm"
                 animate={{ opacity: isOpen ? 0 : 1 }}
                 transition={{ duration: 0.3 }}
             >

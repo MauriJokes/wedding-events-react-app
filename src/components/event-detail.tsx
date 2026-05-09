@@ -71,7 +71,7 @@ export interface EventDetailProps {
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
     return (
-        <p className="text-[10px] tracking-[0.38em] text-[#9B8470] uppercase">
+        <p className="text-[10px] tracking-[0.38em] text-[#9B8470] uppercase md:text-sm lg:text-base">
             {children}
         </p>
     );
@@ -106,14 +106,14 @@ export default function EventDetail({
                     : undefined
             }
         >
-            <div className="mx-auto max-w-sm">
+            <div className="mx-auto max-w-sm md:max-w-xl lg:max-w-2xl">
                 {/* ── Title ── */}
                 <motion.h2
                     initial={{ opacity: 0, y: 14 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.7 }}
-                    className="text-center font-serif text-base leading-snug font-light tracking-[0.22em] whitespace-pre-line text-[#3D2E1E] uppercase sm:text-2xl"
+                    className="text-center font-serif text-base leading-snug font-light tracking-[0.22em] whitespace-pre-line text-[#3D2E1E] uppercase md:text-2xl lg:text-3xl"
                 >
                     {title}
                 </motion.h2>
@@ -133,10 +133,10 @@ export default function EventDetail({
                 >
                     <SectionLabel>Tarikh Majlis</SectionLabel>
                     <div className="mt-4 space-y-1">
-                        <p className="text-sm font-light text-[#6B5544]">
+                        <p className="text-sm font-light text-[#6B5544] md:text-lg lg:text-xl">
                             {day}
                         </p>
-                        <p className="text-sm font-light text-[#6B5544]">
+                        <p className="text-sm font-light text-[#6B5544] md:text-lg lg:text-xl">
                             {date}
                         </p>
                     </div>
@@ -157,7 +157,7 @@ export default function EventDetail({
                         {venue.map((line, i) => (
                             <p
                                 key={i}
-                                className="text-sm leading-relaxed font-light text-[#6B5544]"
+                                className="text-sm leading-relaxed font-light text-[#6B5544] md:text-lg lg:text-xl"
                             >
                                 {line}
                             </p>
@@ -184,19 +184,19 @@ export default function EventDetail({
                     viewport={{ once: true }}
                     transition={{ delay: 0.2, duration: 0.6 }}
                 >
-                    <p className="mb-5 text-center text-[10px] tracking-[0.38em] text-[#9B8470] uppercase">
+                    <p className="mb-5 text-center text-[10px] tracking-[0.38em] text-[#9B8470] uppercase md:text-sm lg:text-base">
                         Aturcara Majlis
                     </p>
-                    <div className="relative mb-8">
+                    <div className="relative mx-auto mb-8 max-w-sm md:max-w-md">
                         <div className="absolute top-0 bottom-0 left-[72px] w-px bg-[#D4C4AE]/40" />
-                        <ul className="space-y-3">
+                        <ul className="flex flex-col space-y-3">
                             {aturcara.map((entry, i) => (
                                 <li key={i} className="flex gap-4">
-                                    <div className="w-16 flex-shrink-0 pt-[3px] text-right text-[10px] leading-relaxed tracking-wide text-[#9B8470]">
+                                    <div className="w-16 flex-shrink-0 pt-[3px] text-right text-[10px] leading-relaxed tracking-wide text-[#9B8470] md:text-sm">
                                         {entry.time}
                                     </div>
                                     <div className="flex-1">
-                                        <div className="flex items-start gap-2.5 text-sm font-light text-[#6B5544]">
+                                        <div className="flex items-start gap-2.5 text-sm font-light text-[#6B5544] md:text-lg">
                                             <span>{entry.item}</span>
                                         </div>
                                         {entry.subitems && (
@@ -205,7 +205,7 @@ export default function EventDetail({
                                                     (sub, j) => (
                                                         <li
                                                             key={j}
-                                                            className="flex items-start gap-2 text-[12px] font-light text-[#9B8470]"
+                                                            className="flex items-start gap-2 text-[12px] font-light text-[#9B8470] md:text-base"
                                                         >
                                                             <span className="mt-[6px] h-[3px] w-[3px] flex-shrink-0 rounded-full bg-[#C4A882]/55" />
                                                             <span>{sub}</span>
@@ -280,7 +280,7 @@ export default function EventDetail({
                                             duration: 0.3,
                                             delay: 0.1,
                                         }}
-                                        className="mx-auto mt-5 max-w-xs text-[12px] leading-[1.85] font-light tracking-wide text-[#6B5544]"
+                                        className="mx-auto mt-5 max-w-xs text-[12px] leading-[1.85] font-light tracking-wide text-[#6B5544] md:max-w-lg md:text-base lg:max-w-xl lg:text-lg"
                                     >
                                         {para}
                                     </motion.p>
@@ -304,30 +304,30 @@ export default function EventDetail({
                     {/* Color swatch circle */}
                     <div className="mt-6 flex justify-center">
                         <div
-                            className="h-28 w-28 rounded-full shadow-sm"
+                            className="h-28 w-28 rounded-full shadow-sm md:h-36 md:w-36 lg:h-44 lg:w-44"
                             style={{ backgroundColor: themeColor }}
                             aria-label={`Tema pakaian: ${themeLabel}`}
                             title={themeLabel}
                         />
                     </div>
-                    <p className="mt-3 text-[10px] tracking-[0.22em] text-[#9B8470] uppercase">
+                    <p className="mt-3 text-[10px] tracking-[0.22em] text-[#9B8470] uppercase md:text-sm lg:text-base">
                         {themeLabel}
                     </p>
                     {/* Two-column dresscode */}
                     <div className="mt-5 grid grid-cols-2 gap-px border border-[#D4C4AE]/60">
-                        <div className="border-r border-[#D4C4AE]/60 px-4 py-4">
-                            <p className="mb-2 text-[8px] tracking-[0.3em] text-[#C4A882] uppercase">
+                        <div className="border-r border-[#D4C4AE]/60 px-4 py-4 md:px-8 md:py-6">
+                            <p className="mb-2 text-[8px] tracking-[0.3em] text-[#C4A882] uppercase md:text-xs lg:text-sm">
                                 Lelaki
                             </p>
-                            <p className="text-[11px] leading-relaxed font-light text-[#6B5544]">
+                            <p className="text-[10px] leading-relaxed font-light text-[#6B5544] md:text-base md:whitespace-nowrap lg:text-lg">
                                 {dresscode.lelaki}
                             </p>
                         </div>
-                        <div className="px-4 py-4">
-                            <p className="mb-2 text-[8px] tracking-[0.3em] text-[#C4A882] uppercase">
+                        <div className="px-4 py-4 md:px-8 md:py-6">
+                            <p className="mb-2 text-[8px] tracking-[0.3em] text-[#C4A882] uppercase md:text-xs lg:text-sm">
                                 Perempuan
                             </p>
-                            <p className="text-[11px] leading-relaxed font-light text-[#6B5544]">
+                            <p className="text-[10px] leading-relaxed font-light text-[#6B5544] md:text-base md:whitespace-nowrap lg:text-lg">
                                 {dresscode.perempuan}
                             </p>
                         </div>

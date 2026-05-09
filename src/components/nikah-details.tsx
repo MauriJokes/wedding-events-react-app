@@ -255,10 +255,25 @@ export default function NikahDetails({
     return (
         <section
             id="invitation"
-            className="w-full px-6 py-16 text-center"
+            className="relative w-full overflow-hidden px-6 py-16 text-center"
             style={{ backgroundColor: "#2E3A4A" }}
         >
-            <div className="mx-auto max-w-sm">
+            {/* Corner flower images */}
+            {/* <img
+                src="/top_corner_flower.png"
+                alt=""
+                aria-hidden="true"
+                className="pointer-events-none absolute top-0 left-0 z-0 w-44 select-none md:w-64 lg:w-80"
+                style={{ opacity: 0.3 }}
+            />
+            <img
+                src="/bottom_corner_flower.png"
+                alt=""
+                aria-hidden="true"
+                className="pointer-events-none absolute right-0 bottom-0 z-0 w-44 select-none md:w-64 lg:w-80"
+                style={{ opacity: 0.3 }}
+            /> */}
+            <div className="mx-auto max-w-sm md:max-w-xl lg:max-w-2xl">
                 {/* Top ornate floral border */}
                 <motion.div
                     initial={{ opacity: 0 }}
@@ -291,7 +306,7 @@ export default function NikahDetails({
                         revealed ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }
                     }
                     transition={{ delay: 0.1, duration: 0.8 }}
-                    className="font-serif text-lg font-light tracking-[0.12em] text-[#F0E6D8] sm:text-3xl"
+                    className="font-serif text-lg font-light tracking-[0.12em] text-[#F0E6D8] md:text-3xl lg:text-4xl"
                 >
                     ASSALAMU&apos;ALAIKUM WR. WB.
                 </motion.p>
@@ -303,7 +318,7 @@ export default function NikahDetails({
                         revealed ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }
                     }
                     transition={{ delay: 0.2, duration: 0.7 }}
-                    className="mt-7 text-[12px] leading-relaxed tracking-wide text-[#C4A882]"
+                    className="mt-7 text-[12px] leading-relaxed tracking-wide text-[#C4A882] md:text-base lg:text-lg"
                 >
                     Dengan izin Allah S.W.T dan rahmatnya, kami:
                 </motion.p>
@@ -317,17 +332,17 @@ export default function NikahDetails({
                     transition={{ delay: 0.3, duration: 0.7 }}
                     className="mt-6 space-y-2 font-serif"
                 >
-                    <p className="text-sm font-light text-[#E8D9C5]">
+                    <p className="text-sm font-light text-[#E8D9C5] md:text-lg lg:text-xl">
                         Pengiran Haji Mohamad Jaludin bin Pengiran Haji Puteh
                     </p>
-                    <p className="text-sm font-light text-[#E8D9C5]">
+                    <p className="text-sm font-light text-[#E8D9C5] md:text-lg lg:text-xl">
                         Dayang Masdiah binti Awang Haji Tuah
                     </p>
                     <div className="mx-auto my-3 h-px w-10 bg-[#C4A882]/35" />
-                    <p className="text-sm font-light text-[#E8D9C5]">
+                    <p className="text-sm font-light text-[#E8D9C5] md:text-lg lg:text-xl">
                         Nik Joharris bin Nik Ahmad
                     </p>
-                    <p className="text-sm font-light text-[#E8D9C5]">
+                    <p className="text-sm font-light text-[#E8D9C5] md:text-lg lg:text-xl">
                         Nerisa binti Nawi
                     </p>
                 </motion.div>
@@ -339,7 +354,7 @@ export default function NikahDetails({
                         revealed ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }
                     }
                     transition={{ delay: 0.4, duration: 0.7 }}
-                    className="mx-auto mt-8 max-w-[260px] text-[12px] leading-relaxed tracking-wide text-[#C4A882]"
+                    className="mx-auto mt-8 max-w-[260px] text-[12px] leading-relaxed tracking-wide text-[#C4A882] md:max-w-lg md:text-base lg:max-w-xl lg:text-lg"
                 >
                     Dengan segala hormat dan takzim sukacita memohon restu dan
                     ingin memaklumkan Majlis-Majlis penyatuan anakanda kami:
@@ -354,19 +369,19 @@ export default function NikahDetails({
                     transition={{ delay: 0.5, duration: 0.8 }}
                     className="mt-10 space-y-2"
                 >
-                    <p className="font-serif text-sm tracking-[0.25em] text-[#F0E6D8] uppercase">
+                    <p className="font-serif text-base tracking-[0.25em] text-[#F0E6D8] uppercase md:text-xl lg:text-2xl">
                         DAYANGKU IZYAN NAQIYAH
                     </p>
-                    <p className="text-[11px] tracking-[0.18em] text-[#C4A882]">
+                    <p className="text-xs tracking-[0.18em] text-[#C4A882] md:text-sm lg:text-base">
                         BINTI PENGIRAN HAJI MOHD JALUDIN
                     </p>
-                    <p className="my-1 font-serif text-xl tracking-[0.3em] text-[#C4A882]">
+                    <p className="my-1 font-serif text-xl tracking-[0.3em] text-[#C4A882] md:text-3xl lg:text-4xl">
                         &amp;
                     </p>
-                    <p className="font-serif text-sm tracking-[0.25em] text-[#F0E6D8] uppercase">
+                    <p className="font-serif text-base tracking-[0.25em] text-[#F0E6D8] uppercase md:text-xl lg:text-2xl">
                         NIK ADAM DANISH
                     </p>
-                    <p className="text-[11px] tracking-[0.18em] text-[#C4A882]">
+                    <p className="text-xs tracking-[0.18em] text-[#C4A882] md:text-sm lg:text-base">
                         BIN NIK JOHARRIS
                     </p>
                 </motion.div>
@@ -397,14 +412,14 @@ export default function NikahDetails({
                     <a
                         href="/Aturcara Majlis.pdf"
                         download="Aturcara-Majlis-Perkahwinan.pdf"
-                        className="flex-1 border border-[#C4A882]/50 px-4 py-3 text-center text-[10px] leading-snug tracking-[0.18em] text-[#C4A882] uppercase transition-colors hover:border-[#C4A882] hover:text-[#F0E6D8] active:opacity-80"
+                        className="flex-1 border border-[#C4A882]/50 px-4 py-3 text-center text-[10px] leading-snug tracking-[0.18em] text-[#C4A882] uppercase transition-colors hover:border-[#C4A882] hover:text-[#F0E6D8] active:opacity-80 md:text-sm lg:text-base"
                     >
                         Muat Turun Ringkasan
                         <br />
                         Majlis-Majlis
                     </a>
                     <button
-                        className="flex-1 border border-[#C4A882]/50 px-4 py-3 text-center text-[10px] leading-snug tracking-[0.18em] text-[#C4A882] uppercase transition-colors hover:border-[#C4A882] hover:text-[#F0E6D8] active:opacity-80"
+                        className="flex-1 border border-[#C4A882]/50 px-4 py-3 text-center text-[10px] leading-snug tracking-[0.18em] text-[#C4A882] uppercase transition-colors hover:border-[#C4A882] hover:text-[#F0E6D8] active:opacity-80 md:text-sm lg:text-base"
                         onClick={downloadAllEventsIcs}
                         aria-label="Simpan tarikh dalam kalendar"
                     >
