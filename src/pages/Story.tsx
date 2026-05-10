@@ -170,7 +170,10 @@ const eventBersanding: EventDetailProps = {
 function SectionDivider({ flip }: { flip?: boolean }) {
     return (
         <div className="flex w-full items-center justify-center bg-[#F5F0E8] py-6">
-            <OrnateFloralBorder flip={flip} />
+            <OrnateFloralBorder
+                flip={flip}
+                className="w-[320px] md:w-[480px] lg:w-[640px]"
+            />
         </div>
     );
 }
@@ -198,7 +201,7 @@ export default function Story({ onEnter }: { onEnter?: () => void }) {
             <div className="relative">
                 {/* Left side flowers — tiled vertically */}
                 <div
-                    className="pointer-events-none absolute top-0 bottom-0 left-0 z-0 w-30 overflow-hidden md:w-44 lg:w-55"
+                    className="pointer-events-none absolute top-0 bottom-0 left-0 z-0 w-22 overflow-hidden md:w-40 lg:w-50"
                     style={{ opacity: 0.15 }}
                     aria-hidden="true"
                 >
@@ -208,12 +211,12 @@ export default function Story({ onEnter }: { onEnter?: () => void }) {
                         style={{
                             position: "absolute",
                             top: "50%",
-                            left: "50%",
+                            left: "5%",
                             width: "30000px",
-                            height: "120px",
+                            height: "240px",
                             backgroundImage: "url('/side_flowers.png')",
                             backgroundRepeat: "repeat-x",
-                            backgroundSize: "auto 120px",
+                            backgroundSize: "auto 240px",
                             transform: "translate(-50%, -50%) rotate(90deg)",
                         }}
                     />
@@ -223,12 +226,12 @@ export default function Story({ onEnter }: { onEnter?: () => void }) {
                         style={{
                             position: "absolute",
                             top: "50%",
-                            left: "50%",
+                            left: "35%",
                             width: "30000px",
-                            height: "200px",
+                            height: "300px",
                             backgroundImage: "url('/side_flowers.png')",
                             backgroundRepeat: "repeat-x",
-                            backgroundSize: "auto 200px",
+                            backgroundSize: "auto 300px",
                             transform: "translate(-50%, -50%) rotate(90deg)",
                         }}
                     />
@@ -238,12 +241,12 @@ export default function Story({ onEnter }: { onEnter?: () => void }) {
                         style={{
                             position: "absolute",
                             top: "50%",
-                            left: "50%",
+                            left: "40%",
                             width: "30000px",
-                            height: "220px",
+                            height: "320px",
                             backgroundImage: "url('/side_flowers.png')",
                             backgroundRepeat: "repeat-x",
-                            backgroundSize: "auto 220px",
+                            backgroundSize: "auto 320px",
                             transform: "translate(-50%, -50%) rotate(90deg)",
                         }}
                     />
@@ -251,7 +254,7 @@ export default function Story({ onEnter }: { onEnter?: () => void }) {
 
                 {/* Right side flowers — mirrored horizontally */}
                 <div
-                    className="pointer-events-none absolute top-0 right-0 bottom-0 z-0 w-30 overflow-hidden md:w-44 lg:w-55"
+                    className="pointer-events-none absolute top-0 right-0 bottom-0 z-0 w-22 overflow-hidden md:w-40 lg:w-50"
                     style={{ opacity: 0.15, transform: "scaleX(-1)" }}
                     aria-hidden="true"
                 >
@@ -261,12 +264,12 @@ export default function Story({ onEnter }: { onEnter?: () => void }) {
                         style={{
                             position: "absolute",
                             top: "50%",
-                            left: "50%",
+                            left: "5%",
                             width: "30000px",
-                            height: "120px",
+                            height: "240px",
                             backgroundImage: "url('/side_flowers.png')",
                             backgroundRepeat: "repeat-x",
-                            backgroundSize: "auto 120px",
+                            backgroundSize: "auto 240px",
                             transform: "translate(-50%, -50%) rotate(90deg)",
                         }}
                     />
@@ -276,12 +279,12 @@ export default function Story({ onEnter }: { onEnter?: () => void }) {
                         style={{
                             position: "absolute",
                             top: "50%",
-                            left: "50%",
+                            left: "35%",
                             width: "30000px",
-                            height: "200px",
+                            height: "300px",
                             backgroundImage: "url('/side_flowers.png')",
                             backgroundRepeat: "repeat-x",
-                            backgroundSize: "auto 200px",
+                            backgroundSize: "auto 300px",
                             transform: "translate(-50%, -50%) rotate(90deg)",
                         }}
                     />
@@ -291,12 +294,12 @@ export default function Story({ onEnter }: { onEnter?: () => void }) {
                         style={{
                             position: "absolute",
                             top: "50%",
-                            left: "50%",
+                            left: "40%",
                             width: "30000px",
-                            height: "220px",
+                            height: "320px",
                             backgroundImage: "url('/side_flowers.png')",
                             backgroundRepeat: "repeat-x",
-                            backgroundSize: "auto 220px",
+                            backgroundSize: "auto 320px",
                             transform: "translate(-50%, -50%) rotate(90deg)",
                         }}
                     />

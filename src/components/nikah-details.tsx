@@ -5,7 +5,13 @@ import { motion } from "framer-motion";
  * Mimics the rose-and-stem decorations visible in the Canva design (Image 6).
  * Top variant faces downward; bottom variant is flipped.
  */
-export function OrnateFloralBorder({ flip = false }: { flip?: boolean }) {
+export function OrnateFloralBorder({
+    flip = false,
+    className = "w-full",
+}: {
+    flip?: boolean;
+    className?: string;
+}) {
     return (
         <div
             className="flex w-full justify-center"
@@ -14,8 +20,7 @@ export function OrnateFloralBorder({ flip = false }: { flip?: boolean }) {
         >
             <svg
                 viewBox="0 0 320 70"
-                width="320"
-                height="70"
+                className={className}
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
             >
@@ -168,21 +173,6 @@ export default function NikahDetails({
             className="relative w-full overflow-hidden px-6 py-16 text-center"
             style={{ backgroundColor: "#2E3A4A" }}
         >
-            {/* Corner flower images */}
-            {/* <img
-                src="/top_corner_flower.png"
-                alt=""
-                aria-hidden="true"
-                className="pointer-events-none absolute top-0 left-0 z-0 w-44 select-none md:w-64 lg:w-80"
-                style={{ opacity: 0.3 }}
-            />
-            <img
-                src="/bottom_corner_flower.png"
-                alt=""
-                aria-hidden="true"
-                className="pointer-events-none absolute right-0 bottom-0 z-0 w-44 select-none md:w-64 lg:w-80"
-                style={{ opacity: 0.3 }}
-            /> */}
             <div className="mx-auto max-w-sm md:max-w-xl lg:max-w-2xl">
                 {/* Top ornate floral border */}
                 <motion.div
@@ -191,7 +181,7 @@ export default function NikahDetails({
                     transition={{ duration: 1 }}
                     className="mb-4"
                 >
-                    <OrnateFloralBorder />
+                    <OrnateFloralBorder className="w-[320px] md:w-[480px] lg:w-[640px]" />
                 </motion.div>
 
                 {/* Bismillah */}
@@ -346,7 +336,10 @@ export default function NikahDetails({
                     animate={revealed ? { opacity: 1 } : { opacity: 0 }}
                     transition={{ delay: 0.3, duration: 1 }}
                 >
-                    <OrnateFloralBorder flip />
+                    <OrnateFloralBorder
+                        flip
+                        className="w-[320px] md:w-[480px] lg:w-[640px]"
+                    />
                 </motion.div>
             </div>
         </section>

@@ -89,7 +89,7 @@ export default function Hero({
                 transition={{ duration: 1.3, ease: [0.4, 0, 0.15, 1] }}
             >
                 <div
-                    className="relative flex h-[168px] w-[168px] items-center justify-center rounded-full shadow-md md:h-[196px] md:w-[196px] lg:h-[220px] lg:w-[220px]"
+                    className="relative flex h-[min(168px,38vmin)] w-[min(168px,38vmin)] items-center justify-center rounded-full shadow-md md:h-[min(196px,35vmin)] md:w-[min(196px,35vmin)] lg:h-[min(220px,32vmin)] lg:w-[min(220px,32vmin)]"
                     style={{
                         backgroundColor: "#C4A882",
                     }}
@@ -98,7 +98,7 @@ export default function Hero({
                     <img
                         src="/logo.png"
                         alt="Izyan & Adam calligraphy seal"
-                        className="relative z-10 h-36 w-36 object-contain md:h-44 md:w-44 lg:h-48 lg:w-48"
+                        className="relative z-10 h-[85%] w-[85%] object-contain"
                         style={{ mixBlendMode: "multiply" }}
                     />
                 </div>
