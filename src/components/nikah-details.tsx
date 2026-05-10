@@ -1,95 +1,5 @@
 import { motion } from "framer-motion";
 
-function formatIcsDate(
-    year: number,
-    month: number,
-    day: number,
-    hour: number,
-    minute: number,
-) {
-    const pad = (n: number) => String(n).padStart(2, "0");
-    return `${year}${pad(month)}${pad(day)}T${pad(hour)}${pad(minute)}00`;
-}
-
-function downloadAllEventsIcs() {
-    const icsEvents = [
-        {
-            title: "Majlis Khatam Al-Quran dan Majlis Berbedak Siang",
-            year: 2026,
-            month: 12,
-            day: 25,
-            startHour: 14,
-            startMinute: 15,
-            endHour: 18,
-            endMinute: 0,
-            location: "Rumah Pengantin Perempuan",
-        },
-        {
-            title: "Majlis Malam Berbedak dan Majlis Berinai",
-            year: 2026,
-            month: 12,
-            day: 26,
-            startHour: 19,
-            startMinute: 30,
-            endHour: 23,
-            endMinute: 0,
-            location: "Rumah Pengantin Perempuan",
-        },
-        {
-            title: "Majlis Menerima Berian dan Majlis Akad Nikah",
-            year: 2026,
-            month: 12,
-            day: 27,
-            startHour: 14,
-            startMinute: 0,
-            endHour: 18,
-            endMinute: 0,
-            location: "The Garden's Veranda",
-        },
-        {
-            title: "Majlis Bersanding",
-            year: 2026,
-            month: 12,
-            day: 28,
-            startHour: 19,
-            startMinute: 15,
-            endHour: 23,
-            endMinute: 0,
-            location: "Tarindak D'Polo",
-        },
-    ];
-    const vevents = icsEvents
-        .map((e, i) =>
-            [
-                "BEGIN:VEVENT",
-                `UID:izyan-adam-2026-${i + 1}@wedding`,
-                `DTSTART;TZID=Asia/Brunei:${formatIcsDate(e.year, e.month, e.day, e.startHour, e.startMinute)}`,
-                `DTEND;TZID=Asia/Brunei:${formatIcsDate(e.year, e.month, e.day, e.endHour, e.endMinute)}`,
-                `SUMMARY:${e.title}`,
-                `LOCATION:${e.location}`,
-                "DESCRIPTION:Perkahwinan Dayangku Izyan Naqiyah & Nik Adam Danish",
-                "END:VEVENT",
-            ].join("\r\n"),
-        )
-        .join("\r\n");
-    const ics = [
-        "BEGIN:VCALENDAR",
-        "VERSION:2.0",
-        "PRODID:-//Izyan & Adam Wedding//EN",
-        "CALSCALE:GREGORIAN",
-        "METHOD:PUBLISH",
-        vevents,
-        "END:VCALENDAR",
-    ].join("\r\n");
-    const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "majlis-izyan-adam-2026.ics";
-    a.click();
-    URL.revokeObjectURL(url);
-}
-
 /**
  * Ornate floral border used in the invitation section.
  * Mimics the rose-and-stem decorations visible in the Canva design (Image 6).
@@ -418,15 +328,16 @@ export default function NikahDetails({
                         <br />
                         Majlis-Majlis
                     </a>
-                    <button
+                    <a
+                        href="/majlis-izyan-adam-2026.ics"
+                        download="majlis-izyan-adam-2026.ics"
                         className="flex-1 border border-[#C4A882]/50 px-4 py-3 text-center text-[10px] leading-snug tracking-[0.18em] text-[#C4A882] uppercase transition-colors hover:border-[#C4A882] hover:text-[#F0E6D8] active:opacity-80 md:text-sm lg:text-base"
-                        onClick={downloadAllEventsIcs}
                         aria-label="Simpan tarikh dalam kalendar"
                     >
                         Simpan Tarikh-Tarikh
                         <br />
                         dalam Kalendar Anda
-                    </button>
+                    </a>
                 </motion.div>
 
                 {/* Bottom ornate floral border */}

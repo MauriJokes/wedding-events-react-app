@@ -3,45 +3,21 @@ import { motion, AnimatePresence } from "framer-motion";
 
 function GoldLineDivider() {
     return (
-        <svg
-            width="280"
-            height="44"
-            viewBox="0 0 280 44"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-        >
-            {/* Left line */}
-            <line
-                x1="10"
-                y1="22"
-                x2="124"
-                y2="22"
-                stroke="#C4A882"
-                strokeWidth="0.75"
-                strokeLinecap="round"
-            />
-            {/* Center ornament — kept exactly as FloralDivider */}
-            <circle cx="140" cy="22" r="2.2" fill="#3D2E1E" />
-            <circle
-                cx="140"
-                cy="22"
-                r="4.5"
-                stroke="#3D2E1E"
-                strokeWidth="0.5"
-                fill="none"
-            />
-            {/* Right line */}
-            <line
-                x1="156"
-                y1="22"
-                x2="270"
-                y2="22"
-                stroke="#C4A882"
-                strokeWidth="0.75"
-                strokeLinecap="round"
-            />
-        </svg>
+        <div className="aria-hidden=true flex w-60 items-center gap-3 md:w-80 lg:w-96">
+            <div className="h-px flex-1 bg-[#C4A882]/60" />
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <circle cx="7" cy="7" r="2.2" fill="#3D2E1E" />
+                <circle
+                    cx="7"
+                    cy="7"
+                    r="4.5"
+                    stroke="#3D2E1E"
+                    strokeWidth="0.5"
+                    fill="none"
+                />
+            </svg>
+            <div className="h-px flex-1 bg-[#C4A882]/60" />
+        </div>
     );
 }
 
@@ -119,7 +95,7 @@ export default function EventDetail({
                 </motion.h2>
 
                 {/* Title divider */}
-                <div className="mt-7 flex justify-center">
+                <div className="mt-7 mb-7 flex justify-center">
                     <GoldLineDivider />
                 </div>
 
@@ -165,7 +141,7 @@ export default function EventDetail({
                     </div>
                     <div className="mt-4 flex justify-center">
                         <a
-                            className="border border-[#D4C4AE] px-5 py-2 text-[9px] tracking-[0.3em] whitespace-nowrap text-[#6B5544]/60 uppercase transition-colors hover:border-[#6B5544] hover:text-[#6B5544] active:scale-[0.97]"
+                            className="border border-[#D4C4AE] px-5 py-2 text-[9px] tracking-[0.3em] whitespace-nowrap text-[#6B5544]/60 uppercase transition-colors hover:border-[#6B5544] hover:text-[#6B5544] active:scale-[0.97] md:px-7 md:py-3 md:text-xs lg:text-sm"
                             href={location}
                             target="_blank"
                             rel="noopener noreferrer"
@@ -231,7 +207,7 @@ export default function EventDetail({
                 >
                     <button
                         onClick={() => setDescOpen((v) => !v)}
-                        className="group inline-flex items-center gap-2 border border-[#D4C4AE] px-5 py-2 text-[9px] tracking-[0.3em] text-[#6B5544]/60 uppercase transition-colors hover:border-[#6B5544] hover:text-[#6B5544] active:scale-[0.97]"
+                        className="group inline-flex items-center gap-2 border border-[#D4C4AE] px-5 py-2 text-[9px] tracking-[0.3em] text-[#6B5544]/60 uppercase transition-colors hover:border-[#6B5544] hover:text-[#6B5544] active:scale-[0.97] md:px-7 md:py-3 md:text-xs lg:text-sm"
                         aria-expanded={descOpen}
                     >
                         <span>Tentang Majlis Ini</span>

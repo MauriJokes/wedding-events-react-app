@@ -142,7 +142,7 @@ const eventBersanding: EventDetailProps = {
     themeColor: "#1A2744",
     themeLabel: "Navy Blue / Biru Gelap",
     description: [
-        "Majlis Bersanding adalah hari di mana pasangan mempelai diraikan sebagai 'Raja Sehari' di atas pelamin yang indah. Majlis ini bertujuan untuk mengumumkan dan meraikan penyatuan pasangan kepada semua saudara-mara, rakan-rakan, dan masyarakat umum.",
+        "Majlis Bersanding adalah hari di mana pasangan mempelai diraikan sebagai 'Raja Sehari' di atas pelamin yang indah setelah di ijab qabulkan. Majlis ini bertujuan untuk mengumumkan dan meraikan penyatuan pasangan kepada semua saudara-mara, rakan-rakan, dan saudara-mara dan rakan-rakan.",
     ],
     dresscode: {
         lelaki: "Baju Melayu",
@@ -150,7 +150,7 @@ const eventBersanding: EventDetailProps = {
     },
     aturcara: [
         { time: "7:15 MLM", item: "Menerima Jemputan" },
-        { time: "8:15 MLM", item: "Perarakan Masuk Diraja Sehari" },
+        { time: "8:15 MLM", item: "Perarakan Masuk Raja Sehari" },
         { time: "", item: "Iringan Persembahan Tausyeh" },
         {
             time: "",
@@ -198,15 +198,32 @@ export default function Story({ onEnter }: { onEnter?: () => void }) {
             <div className="relative">
                 {/* Left side flowers — tiled vertically */}
                 <div
-                    className="pointer-events-none absolute top-0 bottom-0 left-0 z-0 w-36 overflow-hidden"
+                    className="pointer-events-none absolute top-0 bottom-0 left-0 z-0 w-30 overflow-hidden md:w-44 lg:w-55"
                     style={{ opacity: 0.15 }}
                     aria-hidden="true"
                 >
+                    {/* Mobile: tile 70px fits in 80px strip — no clipping */}
                     <div
+                        className="md:hidden"
                         style={{
                             position: "absolute",
                             top: "50%",
-                            left: "10%",
+                            left: "50%",
+                            width: "30000px",
+                            height: "120px",
+                            backgroundImage: "url('/side_flowers.png')",
+                            backgroundRepeat: "repeat-x",
+                            backgroundSize: "auto 120px",
+                            transform: "translate(-50%, -50%) rotate(90deg)",
+                        }}
+                    />
+                    {/* Tablet: tile 160px fits in 176px strip — no clipping */}
+                    <div
+                        className="hidden md:block lg:hidden"
+                        style={{
+                            position: "absolute",
+                            top: "50%",
+                            left: "50%",
                             width: "30000px",
                             height: "200px",
                             backgroundImage: "url('/side_flowers.png')",
@@ -215,27 +232,75 @@ export default function Story({ onEnter }: { onEnter?: () => void }) {
                             transform: "translate(-50%, -50%) rotate(90deg)",
                         }}
                     />
-                </div>
-
-                {/* Right side flowers — tiled vertically */}
-                <div
-                    className="pointer-events-none absolute top-0 right-0 bottom-0 z-0 w-36 overflow-hidden"
-                    style={{ opacity: 0.15 }}
-                    aria-hidden="true"
-                >
+                    {/* Laptop: tile 220px fits in 240px strip — no clipping */}
                     <div
+                        className="hidden lg:block"
                         style={{
                             position: "absolute",
                             top: "50%",
-                            left: "90%",
+                            left: "50%",
+                            width: "30000px",
+                            height: "220px",
+                            backgroundImage: "url('/side_flowers.png')",
+                            backgroundRepeat: "repeat-x",
+                            backgroundSize: "auto 220px",
+                            transform: "translate(-50%, -50%) rotate(90deg)",
+                        }}
+                    />
+                </div>
+
+                {/* Right side flowers — mirrored horizontally */}
+                <div
+                    className="pointer-events-none absolute top-0 right-0 bottom-0 z-0 w-30 overflow-hidden md:w-44 lg:w-55"
+                    style={{ opacity: 0.15, transform: "scaleX(-1)" }}
+                    aria-hidden="true"
+                >
+                    {/* Mobile: tile 70px fits in 80px strip — no clipping */}
+                    <div
+                        className="md:hidden"
+                        style={{
+                            position: "absolute",
+                            top: "50%",
+                            left: "50%",
+                            width: "30000px",
+                            height: "120px",
+                            backgroundImage: "url('/side_flowers.png')",
+                            backgroundRepeat: "repeat-x",
+                            backgroundSize: "auto 120px",
+                            transform: "translate(-50%, -50%) rotate(90deg)",
+                        }}
+                    />
+                    {/* Tablet: tile 160px fits in 176px strip — no clipping */}
+                    <div
+                        className="hidden md:block lg:hidden"
+                        style={{
+                            position: "absolute",
+                            top: "50%",
+                            left: "50%",
                             width: "30000px",
                             height: "200px",
                             backgroundImage: "url('/side_flowers.png')",
                             backgroundRepeat: "repeat-x",
                             backgroundSize: "auto 200px",
-                            transform: "translate(-50%, 50%) rotate(-90deg)",
+                            transform: "translate(-50%, -50%) rotate(90deg)",
                         }}
                     />
+                    {/* Laptop: tile 220px fits in 240px strip — no clipping */}
+                    <div
+                        className="hidden lg:block"
+                        style={{
+                            position: "absolute",
+                            top: "50%",
+                            left: "50%",
+                            width: "30000px",
+                            height: "220px",
+                            backgroundImage: "url('/side_flowers.png')",
+                            backgroundRepeat: "repeat-x",
+                            backgroundSize: "auto 220px",
+                            transform: "translate(-50%, -50%) rotate(90deg)",
+                        }}
+                    />
+                    <div />
                 </div>
 
                 <SectionDivider />
@@ -261,7 +326,7 @@ export default function Story({ onEnter }: { onEnter?: () => void }) {
 
                 {/* Footer */}
                 <div className="pt-4 pb-18 text-center text-[12px] leading-relaxed tracking-wide text-[#C4A882] md:text-sm lg:pb-10 lg:text-base">
-                    Direka oleh Nik Adam Danish
+                    Dengan penuh sayang, Izyan &amp; Adam
                 </div>
             </div>
         </div>
