@@ -142,7 +142,7 @@ const eventBersanding: EventDetailProps = {
     themeColor: "#1A2744",
     themeLabel: "Navy Blue / Biru Gelap",
     description: [
-        "Majlis Bersanding adalah hari di mana pasangan mempelai diraikan sebagai 'Raja Sehari' di atas pelamin yang indah setelah di ijab qabulkan. Majlis ini bertujuan untuk mengumumkan dan meraikan penyatuan pasangan kepada semua saudara-mara, rakan-rakan, dan saudara-mara dan rakan-rakan.",
+        "Majlis Bersanding adalah hari di mana pasangan mempelai diraikan sebagai 'Raja Sehari' di atas pelamin yang indah setelah di ijab qabulkan. Majlis ini bertujuan untuk mengumumkan dan meraikan penyatuan pasangan kepada semua saudara-mara dan rakan-rakan.",
     ],
     dresscode: {
         lelaki: "Baju Melayu",
