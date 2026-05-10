@@ -173,16 +173,35 @@ export default function NikahDetails({
             className="relative w-full overflow-hidden px-6 py-16 text-center"
             style={{ backgroundColor: "#2E3A4A" }}
         >
-            <div className="mx-auto max-w-sm md:max-w-xl lg:max-w-2xl">
+            {/* Left side flower — anchored bottom-left, rises to top */}
+            <img
+                // src="/left_side_flower.png"
+                src="/right_side_flower.png"
+                alt=""
+                aria-hidden="true"
+                className="w-autori pointer-events-none absolute bottom-0 left-[-20px] z-0 h-full object-contain object-left-bottom select-none md:left-0"
+                style={{ opacity: 0.3, transform: "scaleX(-1)" }}
+            />
+            {/* Right side flower — anchored bottom-right, rises to top */}
+            <img
+                // src="/right_side_flower.png"
+                src="/left_side_flower.png"
+                alt=""
+                aria-hidden="true"
+                className="pointer-events-none absolute right-[-35px] bottom-0 z-0 h-full w-auto object-contain object-right-bottom select-none md:right-0"
+                style={{ opacity: 0.3, transform: "scaleX(-1)" }}
+            />
+
+            <div className="relative z-10 mx-auto max-w-sm md:max-w-xl lg:max-w-2xl">
                 {/* Top ornate floral border */}
-                <motion.div
+                {/* <motion.div
                     initial={{ opacity: 0 }}
                     animate={revealed ? { opacity: 1 } : { opacity: 0 }}
                     transition={{ duration: 1 }}
                     className="mb-4"
                 >
                     <OrnateFloralBorder className="w-[320px] md:w-[480px] lg:w-[640px]" />
-                </motion.div>
+                </motion.div> */}
 
                 {/* Bismillah */}
                 <motion.div
@@ -312,7 +331,7 @@ export default function NikahDetails({
                     <a
                         href="/Aturcara Majlis.pdf"
                         download="Aturcara-Majlis-Perkahwinan.pdf"
-                        className="flex-1 border border-[#C4A882]/50 px-4 py-3 text-center text-[10px] leading-snug tracking-[0.18em] text-[#C4A882] uppercase transition-colors hover:border-[#C4A882] hover:text-[#F0E6D8] active:opacity-80 md:text-sm lg:text-base"
+                        className="flex-1 border-[1.5px] border-[#C4A882]/50 bg-[#2E3A4A] px-4 py-3 text-center text-[10px] leading-snug tracking-[0.18em] text-[#C4A882] uppercase transition-colors hover:border-[#C4A882] hover:text-[#F0E6D8] active:opacity-80 md:text-sm lg:text-base"
                     >
                         Muat Turun Ringkasan
                         <br />
@@ -321,7 +340,7 @@ export default function NikahDetails({
                     <a
                         href="/majlis-izyan-adam-2026.ics"
                         download="majlis-izyan-adam-2026.ics"
-                        className="flex-1 border border-[#C4A882]/50 px-4 py-3 text-center text-[10px] leading-snug tracking-[0.18em] text-[#C4A882] uppercase transition-colors hover:border-[#C4A882] hover:text-[#F0E6D8] active:opacity-80 md:text-sm lg:text-base"
+                        className="flex-1 border-[1.5px] border-[#C4A882]/50 bg-[#2E3A4A] px-4 py-3 text-center text-[10px] leading-snug tracking-[0.18em] text-[#C4A882] uppercase transition-colors hover:border-[#C4A882] hover:text-[#F0E6D8] active:opacity-80 md:text-sm lg:text-base"
                         aria-label="Simpan tarikh dalam kalendar"
                     >
                         Simpan Tarikh-Tarikh
@@ -331,7 +350,7 @@ export default function NikahDetails({
                 </motion.div>
 
                 {/* Bottom ornate floral border */}
-                <motion.div
+                {/* <motion.div
                     initial={{ opacity: 0 }}
                     animate={revealed ? { opacity: 1 } : { opacity: 0 }}
                     transition={{ delay: 0.3, duration: 1 }}
@@ -340,7 +359,7 @@ export default function NikahDetails({
                         flip
                         className="w-[320px] md:w-[480px] lg:w-[640px]"
                     />
-                </motion.div>
+                </motion.div> */}
             </div>
         </section>
     );
