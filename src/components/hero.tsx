@@ -98,7 +98,7 @@ export default function Hero({
                 >
                     <div className="absolute inset-[10px] rounded-full border border-[#3D2010]/15" />
                     <img
-                        src="/logo.png"
+                        src="/static/assets/logo.png"
                         alt="Izyan & Adam calligraphy seal"
                         className="relative z-10 h-36 w-36 object-contain"
                         style={{ mixBlendMode: "multiply" }}

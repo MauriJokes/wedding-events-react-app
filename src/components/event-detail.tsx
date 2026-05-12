@@ -1,25 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
-function GoldLineDivider() {
-    return (
-        <div className="aria-hidden=true flex w-60 items-center gap-3 md:w-80 lg:w-96">
-            <div className="h-px flex-1 bg-[#C4A882]/60" />
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                <circle cx="7" cy="7" r="2.2" fill="#3D2E1E" />
-                <circle
-                    cx="7"
-                    cy="7"
-                    r="4.5"
-                    stroke="#3D2E1E"
-                    strokeWidth="0.5"
-                    fill="none"
-                />
-            </svg>
-            <div className="h-px flex-1 bg-[#C4A882]/60" />
-        </div>
-    );
-}
+import GoldLineDivider from "./gold-line-divider";
 
 interface AturcaraItem {
     time: string;
@@ -36,8 +17,7 @@ export interface EventDetailProps {
     venue: string[];
     aturcara: AturcaraItem[];
     /** CSS color value for the Tema Pakaian swatch */
-    themeColor: string;
-    themeLabel: string;
+    theme: { themeColor: string; themeLabel: string; designation: string }[];
     dresscode: { lelaki: string; perempuan: string };
     location: string;
     /** Optional short description shown in an expandable panel */
@@ -64,8 +44,7 @@ export default function EventDetail({
     date,
     venue,
     aturcara,
-    themeColor,
-    themeLabel,
+    theme,
     dresscode,
     location,
     description,
@@ -139,16 +118,18 @@ export default function EventDetail({
                             </p>
                         ))}
                     </div>
-                    <div className="mt-4 flex justify-center">
-                        <a
-                            className="border border-[#D4C4AE] px-5 py-2 text-[9px] tracking-[0.3em] whitespace-nowrap text-[#6B5544]/60 uppercase transition-colors hover:border-[#6B5544] hover:text-[#6B5544] active:scale-[0.97] md:px-7 md:py-3 md:text-xs lg:text-sm"
-                            href={location}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            Lihat lokasi
-                        </a>
-                    </div>
+                    {index !== 3 && (
+                        <div className="mt-4 flex justify-center">
+                            <a
+                                className="border border-[#D4C4AE] px-5 py-2 text-[9px] tracking-[0.3em] whitespace-nowrap text-[#6B5544]/60 uppercase transition-colors hover:border-[#6B5544] hover:text-[#6B5544] active:scale-[0.97] md:px-7 md:py-3 md:text-xs lg:text-sm"
+                                href={location}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                Lihat lokasi
+                            </a>
+                        </div>
+                    )}
                 </motion.div>
 
                 <ThinDivider />
@@ -278,17 +259,30 @@ export default function EventDetail({
                 >
                     <SectionLabel>Tema Pakaian</SectionLabel>
                     {/* Color swatch circle */}
-                    <div className="mt-6 flex justify-center">
-                        <div
-                            className="h-28 w-28 rounded-full shadow-sm md:h-36 md:w-36 lg:h-44 lg:w-44"
-                            style={{ backgroundColor: themeColor }}
-                            aria-label={`Tema pakaian: ${themeLabel}`}
-                            title={themeLabel}
-                        />
+                    <div className="mt-6 grid grid-cols-2 gap-px">
+                        {theme.map(
+                            ({ themeColor, themeLabel, designation }, i) => (
+                                <div
+                                    key={i}
+                                    className="flex flex-1 flex-col items-center justify-center gap-6"
+                                >
+                                    <div
+                                        className="h-28 w-28 rounded-full shadow-sm md:h-36 md:w-36 lg:h-44 lg:w-44"
+                                        style={{ backgroundColor: themeColor }}
+                                        aria-label={`Tema pakaian: ${themeLabel}`}
+                                        title={themeLabel}
+                                    />
+                                    <p className="text-[10.5px] tracking-[0.22em] text-[#9B8470] uppercase md:text-sm md:whitespace-nowrap lg:text-base">
+                                        {themeLabel}
+                                    </p>
+                                    <p className="-mt-4 text-[8px] tracking-[0.22em] text-[#9B8470]/60 uppercase md:text-xs md:whitespace-nowrap lg:text-sm">
+                                        {designation}
+                                    </p>
+                                </div>
+                            ),
+                        )}
                     </div>
-                    <p className="mt-3 text-[10px] tracking-[0.22em] text-[#9B8470] uppercase md:text-sm lg:text-base">
-                        {themeLabel}
-                    </p>
+
                     {/* Two-column dresscode */}
                     <div className="mt-5 grid grid-cols-2 gap-px border border-[#D4C4AE]/60">
                         <div className="border-r border-[#D4C4AE]/60 px-4 py-4 md:px-8 md:py-6">
