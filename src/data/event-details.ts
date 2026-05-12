@@ -146,12 +146,12 @@ export const eventBersanding: EventDetailProps = {
     theme: [
         {
             themeColor: "#1A2744",
-            themeLabel: "Navy Blue / Biru Gelap",
+            themeLabel: "Navy Blue /\nBiru Gelap",
             designation: "Keluarga Izyan",
         },
         {
             themeColor: "#4E0000",
-            themeLabel: "Burgundy / Merah Anggur",
+            themeLabel: "Burgundy /\nMerah Anggur",
             designation: "Keluarga Adam",
         },
     ],

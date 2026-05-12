@@ -2,17 +2,22 @@ import { useState, useCallback } from "react";
 import { motion } from "framer-motion";
 import GoogleCalendarModal from "./google-calendar-modal";
 
-function detectPlatform(): "ios" | "android" | "other" {
-    if (typeof navigator === "undefined") return "other";
-    const ua =
-        navigator.userAgent || (navigator as { vendor?: string }).vendor || "";
-    if (/android/i.test(ua)) return "android";
+/**
+ * "ics"  → iOS only: .ics opens directly in Calendar.app
+ * "gcal" → everything else (Android, macOS, Windows): Google Calendar modal
+ */
+function detectCalendarStrategy(): "ics" | "gcal" {
+    if (typeof navigator === "undefined") return "gcal";
+    const ua = navigator.userAgent || "";
+
+    // iOS (iPhone/iPad/iPod, or iPad reporting as macOS but with touch)
     if (
         /iPad|iPhone|iPod/.test(ua) ||
         (ua.includes("Mac") && "ontouchend" in document)
     )
-        return "ios";
-    return "other";
+        return "ics";
+
+    return "gcal";
 }
 
 export default function NikahDetails({
@@ -24,11 +29,10 @@ export default function NikahDetails({
     const closeCalModal = useCallback(() => setCalModalOpen(false), []);
 
     function handleCalendarClick() {
-        const platform = detectPlatform();
-        if (platform === "android") {
+        if (detectCalendarStrategy() === "gcal") {
             setCalModalOpen(true);
         } else {
-            // iOS and desktop: trigger .ics download
+            // iOS + macOS: .ics is handled natively by Calendar.app
             const link = document.createElement("a");
             link.href = "/static/ics/majlis-izyan-adam-2026.ics";
             link.download = "majlis-izyan-adam-2026.ics";

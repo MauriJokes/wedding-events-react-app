@@ -283,7 +283,7 @@ export default function EventDetail({
                         {theme.map(({ themeLabel }, i) => (
                             <p
                                 key={`label-${i}`}
-                                className="py-1 text-center text-[10.5px] tracking-[0.22em] text-[#9B8470] uppercase md:text-sm md:whitespace-nowrap lg:text-base"
+                                className="py-1 text-center text-[10px] tracking-[0.22em] whitespace-pre-line text-[#9B8470] uppercase md:text-sm md:whitespace-nowrap lg:text-base"
                             >
                                 {themeLabel}
                             </p>
