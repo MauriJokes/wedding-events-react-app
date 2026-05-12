@@ -112,7 +112,7 @@ export default function EventDetail({
                         {venue.map((line, i) => (
                             <p
                                 key={i}
-                                className="text-sm leading-relaxed font-light text-[#6B5544] md:text-lg lg:text-xl"
+                                className={`text-sm leading-relaxed font-light text-[#6B5544] md:text-lg lg:text-xl ${index === 3 ? "tracking-[5px]" : ""}`}
                             >
                                 {line}
                             </p>
