@@ -1,11 +1,45 @@
+import { useState, useCallback } from "react";
 import { motion } from "framer-motion";
+import GoogleCalendarModal from "./google-calendar-modal";
+
+function detectPlatform(): "ios" | "android" | "other" {
+    if (typeof navigator === "undefined") return "other";
+    const ua = navigator.userAgent || (navigator as { vendor?: string }).vendor || "";
+    if (/android/i.test(ua)) return "android";
+    if (
+        /iPad|iPhone|iPod/.test(ua) ||
+        (ua.includes("Mac") && "ontouchend" in document)
+    )
+        return "ios";
+    return "other";
+}
 
 export default function NikahDetails({
     revealed = false,
 }: {
     revealed?: boolean;
 }) {
+    const [calModalOpen, setCalModalOpen] = useState(false);
+    const closeCalModal = useCallback(() => setCalModalOpen(false), []);
+
+    function handleCalendarClick() {
+        const platform = detectPlatform();
+        if (platform === "android") {
+            setCalModalOpen(true);
+        } else {
+            // iOS and desktop: trigger .ics download
+            const link = document.createElement("a");
+            link.href = "/static/ics/majlis-izyan-adam-2026.ics";
+            link.download = "majlis-izyan-adam-2026.ics";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    }
+
     return (
+        <>
+        <GoogleCalendarModal open={calModalOpen} onClose={closeCalModal} />
         <section
             id="invitation"
             className="relative w-full overflow-hidden px-6 py-16 text-center"
@@ -163,18 +197,18 @@ export default function NikahDetails({
                         <br />
                         Majlis-Majlis
                     </a>
-                    <a
-                        href="/static/ics/majlis-izyan-adam-2026.ics"
-                        download="majlis-izyan-adam-2026.ics"
+                    <button
+                        onClick={handleCalendarClick}
                         className="flex-1 border-[1.5px] border-[#C4A882]/50 bg-[#2E3A4A] px-4 py-3 text-center text-[10px] leading-snug tracking-[0.18em] text-[#C4A882] uppercase transition-colors hover:border-[#C4A882] hover:text-[#F0E6D8] active:opacity-80 md:text-sm lg:text-base"
                         aria-label="Simpan tarikh dalam kalendar"
                     >
                         Simpan Tarikh-Tarikh
                         <br />
                         dalam Kalendar Anda
-                    </a>
+                    </button>
                 </motion.div>
             </div>
         </section>
+        </>
     );
 }
