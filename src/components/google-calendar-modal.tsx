@@ -216,7 +216,8 @@ export default function GoogleCalendarModal({ open, onClose }: Props) {
                             }}
                         >
                             <p className="text-[8px] tracking-[0.22em] text-[#C4A882]/40 uppercase md:text-[9px]">
-                                Setiap butang akan membuka Google Calendar
+                                Sila tekan setiap butang untuk simpan ke dalam
+                                Google Calendar anda.
                             </p>
                         </div>
                     </motion.div>
