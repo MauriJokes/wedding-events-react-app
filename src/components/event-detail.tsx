@@ -258,29 +258,45 @@ export default function EventDetail({
                     className="text-center"
                 >
                     <SectionLabel>Tema Pakaian</SectionLabel>
-                    {/* Color swatch circle */}
-                    <div className="mt-6 grid grid-cols-2 gap-px">
-                        {theme.map(
-                            ({ themeColor, themeLabel, designation }, i) => (
+                    {/* Color swatch grid — rows: circles / labels / designations */}
+                    <div
+                        className="mt-6 grid gap-px"
+                        style={{
+                            gridTemplateColumns: `repeat(${theme.length}, 1fr)`,
+                        }}
+                    >
+                        {/* Row 1: color circles */}
+                        {theme.map(({ themeColor, themeLabel }, i) => (
+                            <div
+                                key={`circle-${i}`}
+                                className="flex items-center justify-center py-3"
+                            >
                                 <div
-                                    key={i}
-                                    className="flex flex-1 flex-col items-center justify-center gap-6"
-                                >
-                                    <div
-                                        className="h-28 w-28 rounded-full shadow-sm md:h-36 md:w-36 lg:h-44 lg:w-44"
-                                        style={{ backgroundColor: themeColor }}
-                                        aria-label={`Tema pakaian: ${themeLabel}`}
-                                        title={themeLabel}
-                                    />
-                                    <p className="text-[10.5px] tracking-[0.22em] text-[#9B8470] uppercase md:text-sm md:whitespace-nowrap lg:text-base">
-                                        {themeLabel}
-                                    </p>
-                                    <p className="-mt-4 text-[8px] tracking-[0.22em] text-[#9B8470]/60 uppercase md:text-xs md:whitespace-nowrap lg:text-sm">
-                                        {designation}
-                                    </p>
-                                </div>
-                            ),
-                        )}
+                                    className="h-28 w-28 rounded-full shadow-sm md:h-36 md:w-36 lg:h-44 lg:w-44"
+                                    style={{ backgroundColor: themeColor }}
+                                    aria-label={`Tema pakaian: ${themeLabel}`}
+                                    title={themeLabel}
+                                />
+                            </div>
+                        ))}
+                        {/* Row 2: theme labels */}
+                        {theme.map(({ themeLabel }, i) => (
+                            <p
+                                key={`label-${i}`}
+                                className="py-1 text-center text-[10.5px] tracking-[0.22em] text-[#9B8470] uppercase md:text-sm md:whitespace-nowrap lg:text-base"
+                            >
+                                {themeLabel}
+                            </p>
+                        ))}
+                        {/* Row 3: designations */}
+                        {theme.map(({ designation }, i) => (
+                            <p
+                                key={`designation-${i}`}
+                                className="pb-4 text-center text-[8px] tracking-[0.22em] text-[#9B8470]/60 uppercase md:text-xs md:whitespace-nowrap lg:text-sm"
+                            >
+                                {designation}
+                            </p>
+                        ))}
                     </div>
 
                     {/* Two-column dresscode */}
