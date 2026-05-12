@@ -175,7 +175,7 @@ export default function GoogleCalendarModal({ open, onClose }: Props) {
                                         className="group flex items-center justify-between gap-4 px-6 py-4 transition-colors hover:bg-[#3a4a5c] active:opacity-80"
                                     >
                                         <div className="text-left">
-                                            <p className="text-[11px] font-light leading-snug tracking-wide text-[#F0E6D8] md:text-sm">
+                                            <p className="text-[11px] leading-snug font-light tracking-wide text-[#F0E6D8] md:text-sm">
                                                 {event.title}
                                             </p>
                                             <p className="mt-1 text-[9px] tracking-[0.18em] text-[#C4A882]/70 md:text-[10px]">
