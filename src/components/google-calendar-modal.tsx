@@ -14,28 +14,32 @@ const EVENTS: CalendarEvent[] = [
         title: "Majlis Khatam Al-Quran dan Majlis Berbedak Siang",
         startUtc: "20261225T061500Z",
         endUtc: "20261225T100000Z",
-        location: "Rumah Pengantin Perempuan",
+        location:
+            "MJ Villa, No. 10, Simpang 52-52, Kg. Mata-Mata, Gadong BE1718, Brunei Darussalam",
         description: "Majlis Perkahwinan Izyan & Adam",
     },
     {
         title: "Majlis Malam Berbedak dan Majlis Berinai",
         startUtc: "20261226T113000Z",
         endUtc: "20261226T150000Z",
-        location: "Rumah Pengantin Perempuan",
+        location:
+            "MJ Villa, No. 10, Simpang 52-52, Kg. Mata-Mata, Gadong BE1718, Brunei Darussalam",
         description: "Majlis Perkahwinan Izyan & Adam",
     },
     {
         title: "Majlis Menerima Berian dan Majlis Akad Nikah",
         startUtc: "20261227T060000Z",
         endUtc: "20261227T100000Z",
-        location: "The Garden's Veranda",
+        location:
+            "The Garden's Veranda, Rimba Garden Central (RGC), Simpang 127, Kg. Rimba, Gadong BE3119, Brunei Darussalam",
         description: "Majlis Perkahwinan Izyan & Adam",
     },
     {
         title: "Majlis Bersanding",
         startUtc: "20261228T111500Z",
         endUtc: "20261228T150000Z",
-        location: "Tarindak D'Polo",
+        location:
+            "Tarindak D'Polo, Jalan Tutong, Bandar Seri Begawan BA1511, Brunei Darussalam",
         description: "Majlis Perkahwinan Izyan & Adam",
     },
 ];

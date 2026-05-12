@@ -8,7 +8,7 @@ UID:izyan-adam-2026-1@wedding
 DTSTART;TZID=Asia/Brunei:20261225T141500
 DTEND;TZID=Asia/Brunei:20261225T180000
 SUMMARY:Majlis Khatam Al-Quran dan Majlis Berbedak Siang
-LOCATION:Rumah Pengantin Perempuan
+LOCATION:MJ Villa\, No. 10\, Simpang 52-52\, Kg. Mata-Mata\, Gadong BE1718\, Brunei Darussalam
 DESCRIPTION:Perkahwinan Dayangku Izyan Naqiyah & Nik Adam Danish
 END:VEVENT
 BEGIN:VEVENT
@@ -16,7 +16,7 @@ UID:izyan-adam-2026-2@wedding
 DTSTART;TZID=Asia/Brunei:20261226T193000
 DTEND;TZID=Asia/Brunei:20261226T230000
 SUMMARY:Majlis Malam Berbedak dan Majlis Berinai
-LOCATION:Rumah Pengantin Perempuan
+LOCATION:MJ Villa\, No. 10\, Simpang 52-52\, Kg. Mata-Mata\, Gadong BE1718\, Brunei Darussalam
 DESCRIPTION:Perkahwinan Dayangku Izyan Naqiyah & Nik Adam Danish
 END:VEVENT
 BEGIN:VEVENT
@@ -24,7 +24,7 @@ UID:izyan-adam-2026-3@wedding
 DTSTART;TZID=Asia/Brunei:20261227T140000
 DTEND;TZID=Asia/Brunei:20261227T180000
 SUMMARY:Majlis Menerima Berian dan Majlis Akad Nikah
-LOCATION:The Garden's Veranda
+LOCATION:The Garden's Veranda\, Rimba Garden Central (RGC)\, Simpang 127\, Kg. Rimba\, Gadong BE3119\, Brunei Darussalam
 DESCRIPTION:Perkahwinan Dayangku Izyan Naqiyah & Nik Adam Danish
 END:VEVENT
 BEGIN:VEVENT
@@ -32,7 +32,7 @@ UID:izyan-adam-2026-4@wedding
 DTSTART;TZID=Asia/Brunei:20261228T191500
 DTEND;TZID=Asia/Brunei:20261228T230000
 SUMMARY:Majlis Bersanding
-LOCATION:Tarindak D'Polo
+LOCATION:Tarindak D'Polo\, Jalan Tutong\, Bandar Seri Begawan BA1511\, Brunei Darussalam
 DESCRIPTION:Perkahwinan Dayangku Izyan Naqiyah & Nik Adam Danish
 END:VEVENT
 END:VCALENDAR
