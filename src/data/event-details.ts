@@ -142,7 +142,11 @@ export const eventBersanding: EventDetailProps = {
     title: "MAJLIS BERSANDING",
     day: "Hari Isnin",
     date: "28 Disember 2026M / 18 Rejab 1448H",
-    venue: ["TBC"],
+    venue: [
+        "The Rizqun Hotel International,",
+        "Abdul Razak Complex, Gadong BE3519,",
+        "Brunei Darussalam",
+    ],
     theme: [
         {
             themeColor: "#1A2744",
@@ -176,5 +180,5 @@ export const eventBersanding: EventDetailProps = {
         { time: "", item: "Menikmati Jamuan" },
         { time: "", item: "Sesi bergambar & Rakaman Ucapan Kenangan" },
     ],
-    location: "https://maps.app.goo.gl/Nfbe8NC5Kz59Ft1NA",
+    location: "https://maps.app.goo.gl/8qFWynBpwba4RuJF6",
 };

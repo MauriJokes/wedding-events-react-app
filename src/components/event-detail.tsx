@@ -112,24 +112,22 @@ export default function EventDetail({
                         {venue.map((line, i) => (
                             <p
                                 key={i}
-                                className={`text-sm leading-relaxed font-light text-[#6B5544] md:text-lg lg:text-xl ${index === 3 ? "tracking-[5px]" : ""}`}
+                                className="text-sm leading-relaxed font-light text-[#6B5544] md:text-lg lg:text-xl"
                             >
                                 {line}
                             </p>
                         ))}
                     </div>
-                    {index !== 3 && (
-                        <div className="mt-4 flex justify-center">
-                            <a
-                                className="border border-[#D4C4AE] px-5 py-2 text-[9px] tracking-[0.3em] whitespace-nowrap text-[#6B5544]/60 uppercase transition-colors hover:border-[#6B5544] hover:text-[#6B5544] active:scale-[0.97] md:px-7 md:py-3 md:text-xs lg:text-sm"
-                                href={location}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                Lihat lokasi
-                            </a>
-                        </div>
-                    )}
+                    <div className="mt-4 flex justify-center">
+                        <a
+                            className="border border-[#D4C4AE] px-5 py-2 text-[9px] tracking-[0.3em] whitespace-nowrap text-[#6B5544]/60 uppercase transition-colors hover:border-[#6B5544] hover:text-[#6B5544] active:scale-[0.97] md:px-7 md:py-3 md:text-xs lg:text-sm"
+                            href={location}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Lihat lokasi
+                        </a>
+                    </div>
                 </motion.div>
 
                 <ThinDivider />
