@@ -1,5 +1,25 @@
-import type { EventDetailProps } from "@/components/event-detail";
+interface AturcaraItem {
+    time: string;
+    item: string;
+    subitems?: string[];
+}
 
+export interface EventDetailProps {
+    /** Section anchor id (e.g. "khatam") */
+    sectionId: string;
+    title: string;
+    day: string;
+    date: string;
+    venue: string[];
+    aturcara: AturcaraItem[];
+    /** CSS color value for the Tema Pakaian swatch */
+    theme: { themeColor: string; themeLabel: string; designation?: string }[];
+    dresscode: { lelaki: string; perempuan: string };
+    location: string;
+    /** Optional short description shown in an expandable panel */
+    description?: string[];
+    index?: number;
+}
 // ─── Event data ──────────────────────────────────────────────────────────────
 
 export const eventKhatam: EventDetailProps = {
@@ -17,7 +37,6 @@ export const eventKhatam: EventDetailProps = {
         {
             themeColor: "#F5F5F0",
             themeLabel: "White / Putih",
-            designation: "Seluruh Keluarga",
         },
     ],
     description: [
@@ -55,7 +74,6 @@ export const eventBerbedak: EventDetailProps = {
         {
             themeColor: "#DEA193",
             themeLabel: "Rose Gold / Merah Jambu",
-            designation: "Seluruh Keluarga",
         },
     ],
     description: [
@@ -95,7 +113,6 @@ export const eventAkad: EventDetailProps = {
         {
             themeColor: "#7B4A2D",
             themeLabel: "Rich Brown / Coklat Gelap",
-            designation: "Seluruh Keluarga",
         },
     ],
     description: [
@@ -151,12 +168,12 @@ export const eventBersanding: EventDetailProps = {
         {
             themeColor: "#1A2744",
             themeLabel: "Navy Blue /\nBiru Gelap",
-            designation: "Keluarga Izyan",
+            designation: "Pihak Perempuan",
         },
         {
             themeColor: "#4E0000",
             themeLabel: "Burgundy /\nMerah Anggur",
-            designation: "Keluarga Adam",
+            designation: "Pihak Lelaki",
         },
     ],
     description: [

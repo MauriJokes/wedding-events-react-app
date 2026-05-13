@@ -1,29 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import GoldLineDivider from "./gold-line-divider";
-
-interface AturcaraItem {
-    time: string;
-    item: string;
-    subitems?: string[];
-}
-
-export interface EventDetailProps {
-    /** Section anchor id (e.g. "khatam") */
-    sectionId: string;
-    title: string;
-    day: string;
-    date: string;
-    venue: string[];
-    aturcara: AturcaraItem[];
-    /** CSS color value for the Tema Pakaian swatch */
-    theme: { themeColor: string; themeLabel: string; designation: string }[];
-    dresscode: { lelaki: string; perempuan: string };
-    location: string;
-    /** Optional short description shown in an expandable panel */
-    description?: string[];
-    index?: number;
-}
+import type { EventDetailProps } from "@/data/event-details";
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
     return (
