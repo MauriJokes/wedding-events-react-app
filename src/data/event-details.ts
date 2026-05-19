@@ -161,7 +161,7 @@ export const eventBersanding: EventDetailProps = {
     date: "28 Disember 2026M / 18 Rejab 1448H",
     venue: [
         "Songket Ballroom, Level 4,",
-        "The Rizqun Hotel International,",
+        "The Rizqun International Hotel,",
         "Abdul Razak Complex, Gadong BE3519,",
         "Brunei Darussalam",
     ],

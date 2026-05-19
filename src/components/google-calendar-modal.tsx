@@ -39,7 +39,7 @@ const EVENTS: CalendarEvent[] = [
         startUtc: "20261228T111500Z",
         endUtc: "20261228T150000Z",
         location:
-            "Songket Ballroom, Level 4, The Rizqun Hotel International, Abdul Razak Complex, Gadong BE3519, Brunei Darussalam",
+            "Songket Ballroom, Level 4, The Rizqun International Hotel, Abdul Razak Complex, Gadong BE3519, Brunei Darussalam",
         description: "Majlis Perkahwinan Izyan & Adam",
     },
 ];
